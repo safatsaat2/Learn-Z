@@ -1,0 +1,172 @@
+{% schema %}
+{
+  "name": "Courses Tab Section",
+  "tag": "section",
+  "class": "nxt-tab__area",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Section Title", "default": "All the skills you need in one place" },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "From critical skills to technical topics, Udemy supports your professional development."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Show all Data Science courses"
+    },
+    { "type": "url", "id": "btn_link", "label": "Button Link", "default": "\/collections\/all" },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "text", "id": "tab_label", "label": "Tab Label", "default": "Data Science" },
+        { "type": "collection", "id": "collection", "label": "Product Collection" },
+        {
+          "type": "range",
+          "id": "limit",
+          "min": 4,
+          "max": 16,
+          "step": 1,
+          "default": 12,
+          "label": "Products to Show"
+        },
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Courses Tab Section",
+      "category": "Tab",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Data Science"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "IT Certifications"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Leadership"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Web Development"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Communication"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Business Analytics & Intelligence"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{{ 'nxt-tab-section.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .nxt-tab__area {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+  }
+    @media (min-width: 768px) {
+      .nxt-tab__area {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{% endstyle %}
+<div class="nxt-tab__area__bg nxt_bg_1"></div>
+<div class="nxt-tab__area__bg nxt_bg_2"></div>
+<div class="nxt-container {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--slide-in{% endif %}">
+  {% if section.settings.title != blank %}
+    <h2 class="nxt-tab__area__title">{{ section.settings.title }}</h2>
+  {% endif %}
+  {% if section.settings.subtitle != blank %}
+    <p class="nxt-tab__area__subtitle">{{ section.settings.subtitle }}</p>
+  {% endif %}
+  <div class="nxt-tab__area__tabs">
+    {% for block in section.blocks %}
+      <button class="nxt-tab__area__tab-btn{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
+        <span> {{ block.settings.tab_label }}</span>
+      </button>
+    {% endfor %}
+  </div>
+  {% for block in section.blocks %}
+    <div class="nxt-tab__area__tab-content{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
+      <div class="nxt-tab__area__courses">
+        {% assign collection = collections[block.settings.collection] | default: collections.all %}
+        {% for product in collection.products limit: block.settings.limit %}
+          {% render 'card-product', card_product: product, show_vendor: true, show_rating: true, lazy_load: true %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+  {% if section.settings.btn_text != blank %}
+    <div class="nxt-tab__area__btn">
+      <a href="{{ section.settings.btn_link }}" class="nxt-button">
+        <h6>
+          <span>{{ section.settings.btn_text }}</span>
+        </h6>
+      </a>
+    </div>
+  {% endif %}
+</div>
+<script src="{{ 'nxt-tab-section.js' | asset_url }}" defer></script>

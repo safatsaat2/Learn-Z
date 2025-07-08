@@ -1,0 +1,97 @@
+{% schema %}
+{
+  "name": "Featured Courses Section",
+  "tag": "section",
+  "class": "nxt-tab__area",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Section Title", "default": "Learners are viewing" },
+    { "type": "collection", "id": "collection", "label": "Product Collection" },
+    {
+      "type": "range",
+      "id": "limit",
+      "min": 2,
+      "max": 16,
+      "step": 1,
+      "default": 4,
+      "label": "Products to Show"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Courses",
+      "category": "Courses"
+    }
+  ]
+}
+{% endschema %}
+{{ 'nxt-tab-section.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .nxt-featuredCourse__area {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+  }
+    @media (min-width: 768px) {
+      .nxt-featuredCourse__area {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+      .nxt-featuredCourse__title {
+      margin-bottom: 50px;
+    }
+    }
+    .nxt-tab__area__bg.nxt_bg_3 {
+        width: 2280px;
+        height: 1520px;
+        top: -35%;
+        right: 220px;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(158, 110, 230, 0.28) 0%, rgba(158, 110, 230, 0) 100%);
+    }
+{% endstyle %}
+<div class="nxt-tab__area__bg nxt_bg_3"></div>
+<div class="nxt-container {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--slide-in{% endif %}">
+  {% if section.settings.title != blank %}
+    <h2 class="nxt-tab__area__title nxt-featuredCourse__title">{{ section.settings.title }}</h2>
+  {% endif %}
+
+  <div class="nxt-tab__area__courses">
+    {% assign collection = collections[section.settings.collection] | default: collections.all %}
+    {% for product in collection.products limit: section.settings.limit %}
+      {% render 'card-product', card_product: product, show_vendor: true, show_rating: true, lazy_load: true %}
+    {% endfor %}
+  </div>
+</div>

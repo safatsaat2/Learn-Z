@@ -9,76 +9,163 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "nxt_tab_section_4KCVPm": {
+      "type": "nxt-tab-section",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "tab_dnX6DU": {
+          "type": "tab",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "tab_label": "Data Science",
+            "collection": "",
+            "limit": 12
           }
         },
-        "button": {
-          "type": "buttons",
+        "tab_FG47QR": {
+          "type": "tab",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "tab_label": "IT Certifications",
+            "collection": "best-selling",
+            "limit": 12
+          }
+        },
+        "tab_yXUrV3": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Leadership",
+            "collection": "",
+            "limit": 12
+          }
+        },
+        "tab_ddrHBP": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Web Development",
+            "collection": "",
+            "limit": 12
+          }
+        },
+        "tab_EbR4QX": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Communication",
+            "collection": "",
+            "limit": 12
+          }
+        },
+        "tab_UNPDnj": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Business Analytics & Intelligence",
+            "collection": "",
+            "limit": 12
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "tab_dnX6DU",
+        "tab_FG47QR",
+        "tab_yXUrV3",
+        "tab_ddrHBP",
+        "tab_EbR4QX",
+        "tab_UNPDnj"
       ],
+      "name": "Courses Tab Section",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "title": "All the skills you need in one place",
+        "subtitle": "From critical skills to technical topics, Udemy supports your professional development.",
+        "btn_text": "Show all Data Science courses",
+        "btn_link": "shopify://collections/all",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "background_color": "#000000"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "nxt_sponsors_section_UTnHfU": {
+      "type": "nxt-sponsors-section",
+      "blocks": {
+        "trusted_logo_9qiraE": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Volkswagen_logo.png"
+          }
+        },
+        "trusted_logo_eYQbpH": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Samsung_logo.png"
+          }
+        },
+        "trusted_logo_w3GT4H": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Cisco_logo.png"
+          }
+        },
+        "trusted_logo_Xx9xAn": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Vimeo_logo.png"
+          }
+        },
+        "trusted_logo_jUMjQn": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Procter_Gamble_logo.png"
+          }
+        },
+        "trusted_logo_4GRUig": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Hewlett_Packard_Enterprise_logo.png"
+          }
+        },
+        "trusted_logo_AEbnE9": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Citi_logo.png"
+          }
+        },
+        "trusted_logo_NA8Xjj": {
+          "type": "trusted_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Item_Ericsson_logo.png"
+          }
+        }
+      },
+      "block_order": [
+        "trusted_logo_9qiraE",
+        "trusted_logo_eYQbpH",
+        "trusted_logo_w3GT4H",
+        "trusted_logo_Xx9xAn",
+        "trusted_logo_jUMjQn",
+        "trusted_logo_4GRUig",
+        "trusted_logo_AEbnE9",
+        "trusted_logo_NA8Xjj"
+      ],
+      "name": "Sponsor Section",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "title": "Trusted by 16,000+  companies and millions worldwide",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "background_color": "#000000"
+      }
+    },
+    "nxt_featured_courses_VPWUjp": {
+      "type": "nxt-featured-courses",
+      "name": "Featured Courses",
+      "settings": {
+        "title": "Learners are viewing",
+        "collection": "",
+        "limit": 4,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "background_color": "#000000"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "nxt_tab_section_4KCVPm",
+    "nxt_sponsors_section_UTnHfU",
+    "nxt_featured_courses_VPWUjp"
   ]
 }

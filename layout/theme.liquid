@@ -7,6 +7,13 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    >
+    {{ 'common.css' | asset_url | stylesheet_tag }}
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -241,17 +248,22 @@
         min-height: 100%;
         margin: 0;
         font-size: 1.5rem;
-        letter-spacing: 0.06rem;
+        /* letter-spacing: 0.06rem; */
         line-height: calc(1 + 0.8 / var(--font-body-scale));
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
+        background: #000 !important;
       }
 
       @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
         }
+      }
+      a:empty, ul:empty, dl:empty, div:empty, section:empty, article:empty, p:empty, h1:empty, h2:empty, h3:empty, h4:empty, h5:empty, h6:empty{
+        display: block !important;
+
       }
     {% endstyle %}
 

@@ -1,0 +1,146 @@
+{% schema %}
+{
+  "name": "Sponsor Section",
+  "tag": "section",
+  "class": "nxt-sponsor__area",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Trusted by 16,000+ companies and millions worldwide"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trusted_logo",
+      "name": "Trusted Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Sponsor Section",
+      "category": "Sponsor",
+      "blocks": [
+        {
+          "type": "trusted_logo"
+        },
+        {
+          "type": "trusted_logo"
+        },
+        {
+          "type": "trusted_logo"
+        },
+        {
+          "type": "trusted_logo"
+        },
+        {
+          "type": "trusted_logo"
+        },
+        {
+          "type": "trusted_logo"
+        },
+        {
+          "type": "trusted_logo"
+        },
+        {
+          "type": "trusted_logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% style %}
+      .nxt-sponsor__area {
+        background-color: {{ section.settings.background_color }};
+        padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.8 | round: 0 }}px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+        @media (min-width: 768px) {
+          .nxt-sponsor__area {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
+          .nxt-sponsor__title {
+      max-width: 741px;
+      width: 100%;
+      margin: 0 auto 50px;
+    }
+        }
+      .nxt-sponsor__logos {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nxt-sponsor__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 205px;
+  }
+  .nxt-sponsor__logo img {
+      width: 100%;
+      object-fit: contain;
+      max-width: 100%;
+      height: auto;
+  }
+{% endstyle %}
+<div class="nxt-container {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--slide-in{% endif %}">
+  {% if section.settings.title != blank %}
+    <h2 class="nxt-tab__area__title nxt-sponsor__title">{{ section.settings.title }}</h2>
+  {% endif %}
+
+  <div class="nxt-sponsor__logos">
+    {% for block in section.blocks %}
+      <div class="nxt-sponsor__logo">
+        {% if block.settings.logo_image != blank %}
+          <img src="{{ block.settings.logo_image | image_url: width: 200 }}" alt="{{ block.settings.logo_image.alt }}">
+        {% else %}
+          <img src="https://placehold.co/99x41" alt="BCG">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

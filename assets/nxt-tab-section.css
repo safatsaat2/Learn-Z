@@ -1,0 +1,211 @@
+.nxt-tab__area__title {
+  color: #ffffff;
+  background: radial-gradient(
+    70.54% 70.54% at 50% 50%,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.573) 92.71%,
+    rgba(255, 255, 255, 0.6) 92.72%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  letter-spacing: -0.16px;
+  margin-bottom: 30px;
+}
+.nxt-tab__area__subtitle {
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25.2px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.nxt-tab__area__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16.5px;
+  margin-bottom: 50px;
+}
+.nxt-tab__area__tab-btn {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    92.08deg,
+    rgba(43, 91, 117, 0.7) 0%,
+    rgba(255, 255, 255, 0.09) 100%
+  );
+  border-radius: 8px;
+  padding: 0px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 48px;
+  border: 0.75px solid #ffffff40;
+  color: #ffffff;
+  position: relative;
+}
+.nxt-tab__area__tab-btn.active,
+.nxt-tab__area__tab-btn:hover {
+  box-shadow: 0px 0px 20px 0px #ffffff33;
+}
+.nxt-tab__area__tab-btn.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: linear-gradient(#FA75F8, #9E6EE5) border-box, linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)) border-box;
+  inset: -1px;
+}
+.nxt-tab__area__tab-content {
+  display: none;
+  width: 100%;
+  animation: fadeIn 0.4s;
+}
+.nxt-tab__area__tab-content.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nxt-tab__area__courses {
+  width: 100%;
+  display: flex;
+  gap: 33px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nxt-tab__area__btn {
+  text-align: center;
+  margin-top: 48px;
+}
+@media (min-width: 992px) {
+  .nxt-tab__area__courses .nxt-course__card {
+    width: calc(25% - 33px * 3 / 4);
+    max-width: calc(25% - 33px * 3 / 4);
+  }
+}
+@media (min-width: 500px) and (max-width: 991px) {
+  .nxt-tab__area__courses .nxt-course__card {
+    width: calc(50% - 33px / 2);
+    max-width: calc(50% - 33px / 2);
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .nxt-tab__area__courses {
+    gap: 16px;
+  }
+}
+@media (max-width: 1200px) {
+  .nxt-tab__area__tab-btn {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 5px 12px;
+  }
+  .nxt-tab__area__tabs {
+    gap: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .nxt-tab__area__title {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+  .nxt-tab__area__subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 24px;
+  }
+  .nxt-tab__area__tabs {
+    margin-bottom: 20px;
+  }
+  .nxt-tab__area__courses {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .nxt-tab__area__btn {
+    margin-top: 24px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nxt-tab__area__tab-btn:nth-child(2) {
+  background: linear-gradient(
+    90.75deg,
+    rgba(128, 47, 126, 0.7) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+.nxt-tab__area__tab-btn:nth-child(3) {
+  background: linear-gradient(
+    91.64deg,
+    rgba(88, 61, 128, 0.7) 0%,
+    rgba(255, 255, 255, 0.09) 100%
+  );
+}
+.nxt-tab__area__tab-btn:nth-child(4) {
+  background: linear-gradient(
+    91.33deg,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(122, 70, 79, 0.7) 100%
+  );
+}
+.nxt-tab__area__tab-btn:nth-child(5) {
+  background: linear-gradient(
+    92.08deg,
+    rgba(43, 91, 117, 0.7) 0%,
+    rgba(255, 255, 255, 0.09) 100%
+  );
+}
+.nxt-tab__area__tab-btn:nth-child(6) {
+  background: linear-gradient(
+    90.75deg,
+    rgba(128, 47, 126, 0.7) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+.nxt-tab__area__bg {
+  display: block !important;
+  position: absolute;
+  opacity: 0.8;
+  width: 1845px;
+  height: 1230px;
+}
+.nxt-tab__area__bg.nxt_bg_1{
+  top: -30%;
+  left: -753px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(92, 195, 250, 0.28) 0%, rgba(92, 195, 250, 0) 100%);
+}
+.nxt-tab__area__bg.nxt_bg_2{
+  top: -20%;
+  left: 353px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(92, 195, 250, 0.28) 0%, rgba(92, 195, 250, 0) 100%);
+}

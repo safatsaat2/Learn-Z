@@ -11,8 +11,142 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "sa_footer_EhfagY": {
+      "type": "sa-footer",
+      "blocks": {
+        "link_list_Bk79Kw": {
+          "type": "link_list",
+          "settings": {
+            "heading": "In-demand Careers",
+            "menu": "in-demand-careers",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_w7GEC6": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Web Development",
+            "menu": "web-development",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_RnpBXi": {
+          "type": "link_list",
+          "settings": {
+            "heading": "IT Certifications",
+            "menu": "it-certifications",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_LzUQ8C": {
+          "type": "link_list",
+          "settings": {
+            "heading": "IT Certifications",
+            "menu": "it-certifications",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_8iKqND": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Leadership",
+            "menu": "leadership",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_Xxz36T": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Certifications by Skill",
+            "menu": "certifications-by-skill",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_Ci6yGq": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Leadership",
+            "menu": "leadership",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_reCinF": {
+          "type": "link_list",
+          "settings": {
+            "heading": "IT Certifications",
+            "menu": "it-certifications",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_GpVVWr": {
+          "type": "link_list",
+          "settings": {
+            "heading": "In-demand Careers",
+            "menu": "in-demand-careers",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_awxGzN": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Web Development",
+            "menu": "web-development",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_RAPP8P": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Leadership",
+            "menu": "leadership",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        },
+        "link_list_rCJGKM": {
+          "type": "link_list",
+          "settings": {
+            "heading": "IT Certifications",
+            "menu": "it-certifications",
+            "view_all_text": "See all Career Accelerators",
+            "view_all_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_Bk79Kw",
+        "link_list_w7GEC6",
+        "link_list_RnpBXi",
+        "link_list_LzUQ8C",
+        "link_list_8iKqND",
+        "link_list_Xxz36T",
+        "link_list_Ci6yGq",
+        "link_list_reCinF",
+        "link_list_GpVVWr",
+        "link_list_awxGzN",
+        "link_list_RAPP8P",
+        "link_list_rCJGKM"
+      ],
+      "name": "Advanced Footer",
+      "settings": {
+        "heading": "Explore top skills and certifications",
+        "show_blue_gradient": true,
+        "show_purple_gradient": true
+      }
+    },
     "footer": {
       "type": "footer",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
@@ -30,6 +164,7 @@
     }
   },
   "order": [
+    "sa_footer_EhfagY",
     "footer"
   ]
 }
