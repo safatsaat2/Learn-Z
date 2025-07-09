@@ -226,17 +226,12 @@
 {% endschema %}
 
 <style>
-  * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
-
   .srs-testimonial-section {
       padding: 120px 20px;
-      background-color: {{ section.settings.background_color }};
       font-family: Inter, sans-serif;
       color: {{ section.settings.text_color }};
+    z-index: 1;
+    position: relative;
   }
 
   .srs-testimonial-section  .srs-container {

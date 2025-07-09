@@ -260,6 +260,70 @@
         "background_color": "#000000"
       }
     },
+    "sa_learn_z_sub_plan_kPeirV": {
+      "type": "sa-learn-z-sub-plan",
+      "blocks": {
+        "plan_card_Hn7e9t": {
+          "type": "plan_card",
+          "settings": {
+            "plan_title": "Personal Plan",
+            "plan_subtitle": "For you",
+            "badge_text": "Individual",
+            "price_text": "Starting at $11.00 a month",
+            "billing_text": "Billed monthly or annually. Cancel anytime.",
+            "cta_text": "Try it free",
+            "cta_url": "",
+            "features": "Access to 7,000+ top courses\nCertification prep\nGoal-focused recommendations\nAI-powered coding exercises"
+          }
+        },
+        "plan_card_tpVykM": {
+          "type": "plan_card",
+          "settings": {
+            "plan_title": "Team Plan",
+            "plan_subtitle": "For your team",
+            "badge_text": "2 to 20 people",
+            "price_text": "$30.00 a month per user",
+            "billing_text": "Billed annually. Cancel anytime.",
+            "cta_text": "Try it free",
+            "cta_url": "",
+            "features": "Access to 26,000+ top courses\nCertification prep\nGoal-focused recommendations\nAI-powered coding exercises\nAnalytics and adoption reports"
+          }
+        },
+        "plan_card_kQeVTQ": {
+          "type": "plan_card",
+          "settings": {
+            "plan_title": "Enterprise Plan",
+            "plan_subtitle": "For your whole organization",
+            "badge_text": "More than 20",
+            "price_text": "Contact sales for pricing",
+            "billing_text": "Billed monthly or annually. Cancel anytime.",
+            "cta_text": "Request a demo",
+            "cta_url": "",
+            "features": "Access to 26,000+ top courses\nCertification prep\nAdvanced analytics and insights\nDedicated customer success team\nInternational course collection featuring 15 languages\nAdvanced integrations and Custom API\nHands-on tech training with add-on"
+          }
+        }
+      },
+      "block_order": [
+        "plan_card_Hn7e9t",
+        "plan_card_tpVykM",
+        "plan_card_kQeVTQ"
+      ],
+      "name": "SA Learn Z Subscription Plans",
+      "settings": {
+        "section_bg_color": "#000000",
+        "section_padding_top_mobile": 50,
+        "section_padding_bottom_mobile": 50,
+        "section_padding_left_right_mobile": 20,
+        "section_padding_top_tablet": 50,
+        "section_padding_bottom_tablet": 50,
+        "section_padding_left_right_tablet": 20,
+        "section_padding_top_desktop": 50,
+        "section_padding_bottom_desktop": 50,
+        "section_padding_left_right_desktop": 20,
+        "section_title": "Accelerate growth —<br> for you or your organization",
+        "section_description": "<p>Reach goals faster with one of our plans or programs. Try one free today or contact sales to learn more.</p>"
+      }
+    },
     "sa_testimonials_kixgqN": {
       "type": "sa-testimonials",
       "blocks": {
@@ -347,6 +411,71 @@
         "background_color": "#000000",
         "text_color": "#ffffff"
       }
+    },
+    "gradient_bg_zTC3pb": {
+      "type": "gradient-bg",
+      "blocks": {
+        "gradient_zPJQX7": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_nbh7Az": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_gVEm6V": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_amK9HT": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_A63rgf": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_QDGmaC": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_K8qt6C": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_JT68mY": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "gradient_zPJQX7",
+        "gradient_nbh7Az",
+        "gradient_gVEm6V",
+        "gradient_amK9HT",
+        "gradient_A63rgf",
+        "gradient_QDGmaC",
+        "gradient_K8qt6C",
+        "gradient_JT68mY"
+      ],
+      "name": "Gradient Background",
+      "settings": {}
     }
   },
   "order": [
@@ -354,6 +483,8 @@
     "nxt_tab_section_4KCVPm",
     "nxt_sponsors_section_UTnHfU",
     "nxt_featured_courses_VPWUjp",
-    "sa_testimonials_kixgqN"
+    "sa_learn_z_sub_plan_kPeirV",
+    "sa_testimonials_kixgqN",
+    "gradient_bg_zTC3pb"
   ]
 }

@@ -1,0 +1,157 @@
+{% schema %}
+{
+  "name": "Gradient Background",
+  "blocks": [
+    {
+      "type": "gradient",
+      "name": "Gradient",
+      "settings": [
+        {
+          "type": "color_background",
+          "id": "gradient_color",
+          "label": "Gradient Color"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gradient Background",
+      "category": "Gradient Background",
+      "blocks": [
+        {
+          "type": "gradient"
+        },
+        {
+          "type": "gradient"
+        },
+        {
+          "type": "gradient"
+        },
+        {
+          "type": "gradient"
+        },
+        {
+          "type": "gradient"
+        },
+        {
+          "type": "gradient"
+        },
+        {
+          "type": "gradient"
+        },
+        {
+          "type": "gradient"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  html {
+    overflow-y: scroll;
+  }
+  body {
+    overflow: hidden;
+    position: relative;
+  }
+  .nxt-gradient {
+    display: block;
+    position: absolute;
+    opacity: 0.8;
+  }
+  .nxt-gradient.nxt-gradient_1 {
+    width: 1845px;
+    height: 1230px;
+    top: 0px;
+    left: -758px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(158, 110, 230, 0.28) 0%, rgba(158, 110, 230, 0) 100%);
+  }
+  .nxt-gradient.nxt-gradient_2 {
+    width: 1845px;
+    height: 1230px;
+    top: 230px;
+    left: 350px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(250, 117, 248, 0.28) 0%, rgba(250, 117, 248, 0) 100%);
+  }
+  .nxt-gradient.nxt-gradient_3 {
+    width: 1845px;
+    height: 1230px;
+    top: 672px;
+    left: -753px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(92, 195, 250, 0.28) 0%, rgba(92, 195, 250, 0) 100%);
+  }
+  .nxt-gradient.nxt-gradient_4 {
+    width: 1845px;
+    height: 1230px;
+    top: 943px;
+    left: 353px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(92, 195, 250, 0.28) 0%, rgba(92, 195, 250, 0) 100%);
+  }
+  .nxt-gradient.nxt-gradient_5 {
+    width: 2280px;
+    height: 1520px;
+    top: 2896px;
+    right: 220px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(158, 110, 230, 0.28) 0%, rgba(158, 110, 230, 0) 100%);
+  }
+  .nxt-gradient.nxt-gradient_6 {
+    width: 2280px;
+    height: 1520px;
+    top: 3478px;
+    left: 540px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(250, 117, 248, 0.28) 0%, rgba(250, 117, 248, 0) 100%);
+    opacity: 0.7;
+  }
+  .nxt-gradient.nxt-gradient_7 {
+    width: 2280px;
+    height: 1520px;
+    top: 4246px;
+    right: 210px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(250, 204, 105, 0.28) 0%, rgba(250, 204, 105, 0) 100%);
+    opacity: 0.7;
+  }
+  .nxt-gradient.nxt-gradient_8 {
+    width: 2280px;
+    height: 1520px;
+    top: 5055px;
+    right: 220px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(250, 204, 105, 0.28) 0%, rgba(250, 204, 105, 0) 100%);
+    opacity: 0.7;
+  }
+{% endstyle %}
+{% for block in section.blocks %}
+  <div
+    class="nxt-gradient nxt-gradient_{{ forloop.index }}"
+    {% if block.settings.gradient_color != blank %}
+      style="background: {{ block.settings.gradient_color }};"
+    {% endif %}
+  ></div>
+{% endfor %}
+<script>
+  // Function to check and force body overflow hidden
+  function forceBodyOverflowHidden() {
+      const body = document.body;
+
+      // Get computed styles for the body element
+      const computedStyle = window.getComputedStyle(body);
+      const currentOverflow = computedStyle.overflow;
+
+      // Check if overflow is not set to 'hidden'
+      if (currentOverflow !== 'hidden') {
+          body.style.overflow = 'hidden';
+      }
+  }
+
+  // Run the function when DOM is loaded
+  document.addEventListener('DOMContentLoaded', forceBodyOverflowHidden);
+
+  // Also run immediately in case DOM is already loaded
+  if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', forceBodyOverflowHidden);
+  } else {
+      forceBodyOverflowHidden();
+  }
+</script>

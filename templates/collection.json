@@ -9,8 +9,52 @@
  */
 {
   "sections": {
+    "sa_all_hero_cWtjpE": {
+      "type": "sa-all-hero",
+      "name": "SA All Hero Section",
+      "settings": {
+        "title": "All Courses",
+        "description": "Browse our complete course library and gain the skills you need to grow, adapt, and succeed in today's fast-changing world",
+        "text_alignment": "center",
+        "max_width": 1300,
+        "content_max_width": 800,
+        "min_height": 300,
+        "full_height": false,
+        "padding_vertical": 2,
+        "padding_horizontal": 1,
+        "container_padding": 2,
+        "background_color": "rgba(255, 255, 255, 0.15)",
+        "backdrop_blur": 18,
+        "border_radius": 15,
+        "border_width": 1.5,
+        "border_color": "rgba(255, 255, 255, 0.15)",
+        "title_color": "#ffffff",
+        "title_min_size": 2.5,
+        "title_vw": 5,
+        "title_max_size": 4.5,
+        "title_weight": 600,
+        "title_line_height": 1.2,
+        "title_margin_bottom": 1,
+        "description_color": "#ffffff",
+        "description_min_size": 1.5,
+        "description_vw": 2,
+        "description_max_size": 1.2,
+        "description_weight": 400,
+        "description_line_height": 1.6,
+        "description_opacity": 0.9,
+        "mobile_padding_vertical": 1,
+        "mobile_padding_horizontal": 0.5,
+        "mobile_container_padding": 1.5,
+        "mobile_min_height": 250,
+        "mobile_full_height": false,
+        "small_mobile_container_padding": 1,
+        "small_mobile_min_height": 200,
+        "small_mobile_title_margin_bottom": 0.5
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -107,11 +151,78 @@
         "padding_top": 60,
         "padding_bottom": 180
       }
+    },
+    "gradient_bg_TGwBre": {
+      "type": "gradient-bg",
+      "blocks": {
+        "gradient_FRXQqg": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_NbUVYX": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_GNDrJx": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_xMLyWV": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_R6Gyde": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_rdkiEV": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_LWyWjf": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        },
+        "gradient_3CaQBe": {
+          "type": "gradient",
+          "settings": {
+            "gradient_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "gradient_FRXQqg",
+        "gradient_NbUVYX",
+        "gradient_GNDrJx",
+        "gradient_xMLyWV",
+        "gradient_R6Gyde",
+        "gradient_rdkiEV",
+        "gradient_LWyWjf",
+        "gradient_3CaQBe"
+      ],
+      "name": "Gradient Background",
+      "settings": {}
     }
   },
   "order": [
+    "sa_all_hero_cWtjpE",
     "banner",
     "nxt_tab_section_kdrrqc",
-    "product-grid"
+    "product-grid",
+    "gradient_bg_TGwBre"
   ]
 }

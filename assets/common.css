@@ -9,10 +9,16 @@ body {
 #MainContent {
   overflow: hidden;
 }
+.page-width {
+  position: relative;
+  z-index: 1 !important;
+}
 .nxt-container {
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 .nxt-course__card {
   background: linear-gradient(

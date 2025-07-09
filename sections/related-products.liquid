@@ -7,13 +7,13 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
+  .nxt-related-products__area{
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
+    .nxt-related-products__area {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
@@ -62,7 +62,7 @@
 {
   "name": "t:sections.related-products.name",
   "tag": "section",
-  "class": "section nxt-related-products__area",
+  "class": "nxt-related-products__area",
   "settings": [
     {
       "type": "paragraph",
