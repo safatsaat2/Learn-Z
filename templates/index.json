@@ -9,6 +9,104 @@
  */
 {
   "sections": {
+    "sa_learn_z_hero_sec_rqthnk": {
+      "type": "sa-learn-z-hero-sec",
+      "blocks": {
+        "career_card_9MBtiy": {
+          "type": "career_card",
+          "settings": {
+            "card_title": "Full Stack Web Developer",
+            "card_icon": "shopify://shop_images/fswd.png",
+            "card_icon_custom": "",
+            "show_rating": true,
+            "rating": "4.7",
+            "ratings_count": "447K",
+            "total_hours": "87.6"
+          }
+        },
+        "career_card_483agL": {
+          "type": "career_card",
+          "settings": {
+            "card_title": "Digital Marketer",
+            "card_icon": "shopify://shop_images/dm.png",
+            "card_icon_custom": "",
+            "show_rating": true,
+            "rating": "4.5",
+            "ratings_count": "3.4K",
+            "total_hours": "28.4"
+          }
+        },
+        "career_card_Hi3fem": {
+          "type": "career_card",
+          "settings": {
+            "card_title": "Data Scientist",
+            "card_icon": "shopify://shop_images/ds.png",
+            "card_icon_custom": "",
+            "show_rating": true,
+            "rating": "4.6",
+            "ratings_count": "217K",
+            "total_hours": "46.8"
+          }
+        }
+      },
+      "block_order": [
+        "career_card_9MBtiy",
+        "career_card_483agL",
+        "career_card_Hi3fem"
+      ],
+      "name": "SA Learn Z Hero Section",
+      "settings": {
+        "section_bg_color": "#000000",
+        "container_max_width": "1300px",
+        "section_padding_top_mobile": 60,
+        "section_padding_bottom_mobile": 50,
+        "section_padding_left_right_mobile": 20,
+        "section_padding_top_tablet": 60,
+        "section_padding_bottom_tablet": 50,
+        "section_padding_left_right_tablet": 20,
+        "section_padding_top_desktop": 100,
+        "section_padding_bottom_desktop": 50,
+        "section_padding_left_right_desktop": 20,
+        "show_flash_badge": true,
+        "flash_badge_text": "24-Hour Flash Sale",
+        "flash_badge_text_color": "#ffffff",
+        "flash_badge_font_size": "18px",
+        "main_heading": "<p>Learn what you need.<br/>Sale ends tonight</p>",
+        "main_heading_font_size_mobile": "32px",
+        "main_heading_font_size_desktop": "72px",
+        "main_heading_font_weight": "600",
+        "show_main_cta": true,
+        "main_cta_text": "Starting at $14.99",
+        "main_cta_url": "",
+        "main_cta_text_color": "#ffffff",
+        "main_cta_font_size": "18px",
+        "main_cta_max_width": "263px",
+        "main_cta_height": "55px",
+        "show_glass_section": true,
+        "glass_heading": "Ready to reimagine your career?",
+        "glass_description": "<p>Get the skills and real-world experience employers want with Career Accelerators.</p>",
+        "glass_heading_font_size_mobile": "24px",
+        "glass_heading_font_size_desktop": "38.18px",
+        "glass_heading_font_weight": "700",
+        "glass_description_color": "#ffffff",
+        "glass_description_font_size": "13.88px",
+        "card_min_width": "300px",
+        "cards_gap": "20px",
+        "card_title_color": "#ffffff",
+        "card_title_font_size": "20.82px",
+        "card_title_font_weight": "700",
+        "card_stat_text_color": "#ffffff",
+        "card_stat_font_size": "13.88px",
+        "card_stat_border_color": "#d1d2e0",
+        "show_final_cta": true,
+        "final_cta_text": "All Career Accelerators",
+        "final_cta_url": "",
+        "final_cta_text_color": "#ffffff",
+        "final_cta_font_size": "17.35px",
+        "final_cta_max_width": "234px",
+        "final_cta_height": "43px"
+      }
+    },
     "nxt_tab_section_4KCVPm": {
       "type": "nxt-tab-section",
       "blocks": {
@@ -75,7 +173,7 @@
         "subtitle": "From critical skills to technical topics, Udemy supports your professional development.",
         "btn_text": "Show all Data Science courses",
         "btn_link": "shopify://collections/all",
-        "padding_top": 60,
+        "padding_top": 50,
         "padding_bottom": 60,
         "background_color": "#000000"
       }
@@ -161,11 +259,101 @@
         "padding_bottom": 60,
         "background_color": "#000000"
       }
+    },
+    "sa_testimonials_kixgqN": {
+      "type": "sa-testimonials",
+      "blocks": {
+        "testimonial_wNgcBA": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type1",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_image": "shopify://shop_images/logo_stackoverflow.svg_1.png",
+            "logo_text": "37,076 responses collected",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        },
+        "testimonial_6Dh9MG": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_text": "37,076 responses collected",
+            "author_image": "shopify://shop_images/Alvin_Lim_jpeg.png",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        },
+        "testimonial_CBGn6w": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_text": "37,076 responses collected",
+            "author_image": "shopify://shop_images/William_A_Wachlin_jpeg.png",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        },
+        "testimonial_Aqcp43": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_text": "37,076 responses collected",
+            "author_image": "shopify://shop_images/Ian_Stevens_png.png",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_wNgcBA",
+        "testimonial_6Dh9MG",
+        "testimonial_CBGn6w",
+        "testimonial_Aqcp43"
+      ],
+      "name": "SA Testimonial Section",
+      "settings": {
+        "main_title": "See others' learning success",
+        "logo_image": "shopify://shop_images/logo-boozallenhamilton-2_svg.png",
+        "logo_text": "Udemy Business",
+        "left_title": "Booz Allen Hamilton Unlocks TalentRetention and Productivity ThroughUpskilling",
+        "stat_1_number": "93%",
+        "stat_1_text": "retention rate among participating employees",
+        "stat_2_number": "65%",
+        "stat_2_text": "of learners noted a positive impact on their productivity",
+        "cta_text": "Read full story",
+        "cta_link": "#",
+        "right_image": "shopify://shop_images/Group_24.png",
+        "show_gradient_text": true,
+        "background_color": "#000000",
+        "text_color": "#ffffff"
+      }
     }
   },
   "order": [
+    "sa_learn_z_hero_sec_rqthnk",
     "nxt_tab_section_4KCVPm",
     "nxt_sponsors_section_UTnHfU",
-    "nxt_featured_courses_VPWUjp"
+    "nxt_featured_courses_VPWUjp",
+    "sa_testimonials_kixgqN"
   ]
 }

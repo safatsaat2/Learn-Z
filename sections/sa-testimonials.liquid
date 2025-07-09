@@ -1,0 +1,1077 @@
+{% schema %}
+{
+  "name": "SA Testimonial Section",
+  "class": "srs-testimonial-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "See others' learning success"
+    },
+    {
+      "type": "header",
+      "content": "Logo Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "Udemy Business"
+    },
+    {
+      "type": "header",
+      "content": "Left Content"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Left Title",
+      "default": "Booz Allen Hamilton Unlocks Talent Retention and Productivity Through Upskilling"
+    },
+    {
+      "type": "header",
+      "content": "Statistics"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Statistic 1 Number",
+      "default": "93%"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_text",
+      "label": "Statistic 1 Text",
+      "default": "retention rate among participating employees"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Statistic 2 Number",
+      "default": "65%"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_text",
+      "label": "Statistic 2 Text",
+      "default": "of learners noted a positive impact on their productivity"
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Read full story"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Right Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Side Image"
+    },
+    {
+      "type": "header",
+      "content": "Design Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gradient_text",
+      "label": "Show Gradient Text Effect",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "card_type",
+          "label": "Card Type",
+          "options": [
+            {
+              "value": "type1",
+              "label": "Type 1 (Survey)"
+            },
+            {
+              "value": "type2",
+              "label": "Type 2 (Quote)"
+            }
+          ],
+          "default": "type2"
+        },
+        {
+          "type": "text",
+          "id": "quote_text",
+          "label": "Quote Text",
+          "default": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role."
+        },
+        {
+          "type": "text",
+          "id": "bold_text",
+          "label": "Bold Text (for survey cards)",
+          "default": "Udemy was rated the most popular online course or certification program for learning how to code according to"
+        },
+        {
+          "type": "text",
+          "id": "underlined_text",
+          "label": "Underlined Text (for survey cards)",
+          "default": "StackOverflow's 2023 Developer survey"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image (for survey cards)"
+        },
+        {
+          "type": "text",
+          "id": "logo_text",
+          "label": "Logo Text (for survey cards)",
+          "default": "37,076 responses collected"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Alvin Lim"
+        },
+        {
+          "type": "text",
+          "id": "author_title",
+          "label": "Author Title",
+          "default": "Technical Co-Founder, CTO at Dimensional"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "View Web Development courses"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA Testimonial Section",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type1"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  .srs-testimonial-section {
+      padding: 120px 20px;
+      background-color: {{ section.settings.background_color }};
+      font-family: Inter, sans-serif;
+      color: {{ section.settings.text_color }};
+  }
+
+  .srs-testimonial-section  .srs-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+  }
+
+  .srs-testimonial-section  .srs-left-part {
+      max-width: 554px;
+  }
+
+  .srs-testimonial-section  .srs-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+  }
+
+  .srs-testimonial-section  .srs-header-section {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+  }
+
+  .srs-testimonial-section  .srs-logo {
+      max-width: 275px;
+      height: 48px;
+      position: relative;
+      overflow: hidden;
+  }
+
+  .srs-testimonial-section  .srs-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+  }
+
+  .srs-testimonial-section  .srs-logo-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+
+  .srs-testimonial-section  .srs-logo-text {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+  }
+
+  .srs-testimonial-section .srs-title {
+      max-width: 543px;
+      font-size: 31px;
+      font-weight: 700;
+      line-height: 38px;
+    color: #fff;
+  }
+
+  .srs-testimonial-section  .srs-stats-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+  }
+
+  .srs-testimonial-section  .srs-stat-item {
+      border-bottom: 1px solid rgba(209, 210, 224, 0.3);
+      padding-bottom: 20px;
+  }
+
+  .srs-testimonial-section  .srs-stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 58px;
+      margin-bottom: 10px;
+  }
+
+  .srs-testimonial-section  .srs-stat-text {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 22px;
+      color: {{ section.settings.text_color }};
+  }
+
+  .srs-testimonial-section  .srs-right-part {
+      max-width: 625px;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-card {
+      position: relative;
+      height: 441px;
+  }
+
+  .srs-testimonial-section  .srs-card-bg {
+      max-width: 516px;
+      height: 441px;
+      margin-left: auto;
+      background: linear-gradient(180deg, rgba(153, 56, 151, 0.17) 0%, rgba(255, 255, 255, 0) 100%);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(18px);
+      position: relative;
+      z-index: 2;
+  }
+
+  .srs-testimonial-section  .srs-right-part img {
+      width: 100%;
+      height: 100%;
+      /* object-fit: cover; */
+      border-radius: 8px;
+  }
+
+  /* First Container Styles */
+  .srs-testimonial-section  .srs-container.first {
+      display: block;
+      margin-bottom: 120px;
+  }
+
+  .srs-testimonial-section .srs-container.first h2.testimonial-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 44px;
+      line-height: 120%;
+      letter-spacing: 0px;
+      text-align: center;
+      color: {{ section.settings.text_color }};
+      {% if section.settings.show_gradient_text %}
+      background: radial-gradient(70.54% 70.54% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0.573) 92.71%, rgba(255, 255, 255, 0.6) 92.72%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      {% endif %}
+  }
+
+  /* Testimonial Card Section */
+  .srs-testimonial-section  .srs-testimonial-card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-card-item {
+      max-width: 310px;
+      width: 100%;
+      min-height: 275px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(153,56,151,0.17) 100%);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 35px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-header {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+  }
+
+  .srs-testimonial-section  .srs-quote-icon svg path {
+      fill: {{ section.settings.text_color }};
+  }
+
+  .srs-testimonial-section  .srs-testimonial-text {
+      color: {{ section.settings.text_color }};
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      line-height: 20px;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-text strong {
+      font-weight: 700;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-text.underline {
+      text-decoration: underline;
+  }
+
+  .srs-testimonial-section  .srs-stackoverflow-logo {
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+      gap: 5px;
+  }
+
+  .srs-testimonial-section  .srs-stackoverflow-logo img {
+      max-width: 110px;
+      height: auto;
+  }
+
+  .srs-testimonial-section  .srs-stackoverflow-text {
+      color: rgba(145, 148, 172, 0.8);
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      line-height: 20px;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+  }
+
+  .srs-testimonial-section  .srs-testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .srs-testimonial-section  .srs-author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(209, 210, 224, 0.3);
+      object-fit: cover;
+  }
+
+  .srs-testimonial-section  .srs-author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+  }
+
+  .srs-testimonial-section  .srs-author-name {
+      color: {{ section.settings.text_color }};
+      font-size: 12px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      line-height: 17px;
+  }
+
+  .srs-testimonial-section  .srs-author-title {
+      color: {{ section.settings.text_color }};
+      font-size: 12px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      line-height: 17px;
+      opacity: 0.8;
+  }
+
+  .srs-testimonial-section  .srs-cta-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #A365FF;
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      line-height: 17px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+  }
+
+  .srs-testimonial-section    .srs-cta-link:hover {
+      color: #8B5CF6;
+  }
+
+  .srs-testimonial-section  .srs-cta-link .srs-arrow-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      background: url('data:image/svg+xml;utf8,<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 4l4 4-4 4" stroke="%23A365FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') center/contain no-repeat;
+  }
+
+  /* CTA Button Styles */
+  .srs-testimonial-section   ._rh-cta-button {
+      width: 100%;
+      max-width: 222px;
+      height: 50px;
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+  }
+
+  .srs-testimonial-section ._rh-cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(158, 110, 229, 0.4);
+  }
+
+  .srs-testimonial-section ._rh-cta-button:hover ._rh-cta-button-bg {
+      background: linear-gradient(90deg, #b684f0 0%, #ff89fb 100%);
+  }
+
+  .srs-testimonial-section ._rh-cta-button:active {
+      transform: translateY(0);
+  }
+
+  .srs-testimonial-section ._rh-cta-button-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #9e6ee5 0%, #fa75f8 100%);
+      border-radius: 6px;
+      transition: background 0.3s ease;
+  }
+
+  .srs-testimonial-section ._rh-cta-button-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      transition: background 0.3s ease;
+  }
+
+  .srs-testimonial-section ._rh-cta-button-text {
+      color: white;
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      word-wrap: break-word;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1400px) {
+      .srs-testimonial-section .srs-container {
+          max-width: 1200px;
+          gap: 50px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-wrapper {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 18px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          max-width: 280px;
+      }
+  }
+
+  @media (max-width: 1200px) {
+      .srs-testimonial-section .srs-container {
+          max-width: 1000px;
+          gap: 45px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-wrapper {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          max-width: 100%;
+          min-height: 260px;
+      }
+
+      .srs-testimonial-section .srs-left-part {
+          max-width: 500px;
+      }
+
+      .srs-testimonial-section .srs-right-part {
+          max-width: 580px;
+      }
+  }
+
+  @media (max-width: 1024px) {
+      .srs-testimonial-section {
+          padding: 100px 20px;
+      }
+
+      .srs-testimonial-section .srs-container {
+          max-width: 900px;
+          grid-template-columns: 1fr;
+          gap: 60px;
+      }
+
+      .srs-testimonial-section .srs-left-part {
+          max-width: 100%;
+          text-align: center;
+      }
+
+      .srs-testimonial-section .srs-right-part {
+          max-width: 100%;
+          display: flex;
+          justify-content: center;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card {
+          height: auto;
+          min-height: 400px;
+          max-width: 600px;
+          width: 100%;
+      }
+
+      .srs-testimonial-section .srs-card-bg {
+          max-width: 100%;
+          height: auto;
+          min-height: 350px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-wrapper {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          margin-top: 40px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          min-height: 240px;
+          padding: 30px 20px;
+      }
+
+      .srs-testimonial-section .srs-stats-container {
+          max-width: 500px;
+          margin: 0 auto;
+      }
+
+      .srs-testimonial-section ._rh-cta-button {
+          margin: 0 auto;
+      }
+  }
+
+  @media (max-width: 900px) {
+      .srs-testimonial-section .srs-container {
+          max-width: 800px;
+          gap: 50px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-wrapper {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 18px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          min-height: 220px;
+          padding: 25px 18px;
+      }
+
+      .srs-testimonial-section .srs-title {
+          font-size: 28px;
+          line-height: 34px;
+      }
+
+      .srs-testimonial-section .srs-stat-number {
+          font-size: 42px;
+          line-height: 50px;
+      }
+  }
+
+  @media (max-width: 768px) {
+      .srs-testimonial-section {
+          padding: 80px 15px;
+      }
+
+      .srs-testimonial-section .srs-container {
+          max-width: 100%;
+          gap: 40px;
+      }
+
+      .srs-testimonial-section .srs-container.first h2.testimonial-title {
+          font-size: 32px;
+          line-height: 38px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-wrapper {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+          margin-top: 35px;
+      }
+
+      .srs-testimonial-section .srs-title {
+          font-size: 24px;
+          line-height: 30px;
+      }
+
+      .srs-testimonial-section .srs-stats-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          max-width: 400px;
+      }
+
+      .srs-testimonial-section .srs-stat-number {
+          font-size: 36px;
+          line-height: 44px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          min-height: 200px;
+          padding: 22px 15px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-text {
+          font-size: 13px;
+          line-height: 18px;
+      }
+
+      .srs-testimonial-section .srs-author-name,
+      .srs-testimonial-section .srs-author-title {
+          font-size: 11px;
+          line-height: 15px;
+      }
+  }
+
+  @media (max-width: 600px) {
+      .srs-testimonial-section {
+          padding: 70px 12px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-wrapper {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          margin-top: 30px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          max-width: 100%;
+          min-height: 180px;
+          padding: 20px 15px;
+      }
+
+      .srs-testimonial-section .srs-container.first h2.testimonial-title {
+          font-size: 28px;
+          line-height: 34px;
+      }
+
+      .srs-testimonial-section .srs-title {
+          font-size: 22px;
+          line-height: 28px;
+      }
+
+      .srs-testimonial-section .srs-stat-number {
+          font-size: 32px;
+          line-height: 40px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card {
+          min-height: 300px;
+      }
+
+      .srs-testimonial-section .srs-logo {
+          max-width: 220px;
+          height: 40px;
+      }
+
+      .srs-testimonial-section .srs-logo-text {
+          font-size: 20px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .srs-testimonial-section {
+          padding: 60px 10px;
+      }
+
+      .srs-testimonial-section .srs-container {
+          gap: 30px;
+      }
+
+      .srs-testimonial-section .srs-container.first h2.testimonial-title {
+          font-size: 24px;
+          line-height: 30px;
+      }
+
+      .srs-testimonial-section .srs-title {
+          font-size: 20px;
+          line-height: 26px;
+      }
+
+      .srs-testimonial-section .srs-stat-number {
+          font-size: 28px;
+          line-height: 36px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-wrapper {
+          gap: 15px;
+          margin-top: 25px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          min-height: 160px;
+          padding: 18px 12px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-text {
+          font-size: 12px;
+          line-height: 16px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-content {
+          gap: 12px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-footer {
+          gap: 12px;
+          margin-top: 12px;
+      }
+
+      .srs-testimonial-section .srs-author-avatar {
+          width: 40px;
+          height: 40px;
+      }
+
+      .srs-testimonial-section .srs-author-name,
+      .srs-testimonial-section .srs-author-title {
+          font-size: 10px;
+          line-height: 14px;
+      }
+
+      .srs-testimonial-section .srs-cta-link {
+          font-size: 12px;
+          line-height: 15px;
+      }
+
+      .srs-testimonial-section .srs-logo {
+          max-width: 200px;
+          height: 36px;
+      }
+
+      .srs-testimonial-section .srs-logo-text {
+          font-size: 18px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card {
+          min-height: 250px;
+      }
+  }
+
+  @media (max-width: 360px) {
+      .srs-testimonial-section {
+          padding: 50px 8px;
+      }
+
+      .srs-testimonial-section .srs-container.first h2.testimonial-title {
+          font-size: 22px;
+          line-height: 28px;
+      }
+
+      .srs-testimonial-section .srs-title {
+          font-size: 18px;
+          line-height: 24px;
+      }
+
+      .srs-testimonial-section .srs-stat-number {
+          font-size: 24px;
+          line-height: 32px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-card-item {
+          min-height: 140px;
+          padding: 15px 10px;
+      }
+
+      .srs-testimonial-section .srs-testimonial-text {
+          font-size: 11px;
+          line-height: 15px;
+      }
+
+      .srs-testimonial-section .srs-author-avatar {
+          width: 36px;
+          height: 36px;
+      }
+
+      .srs-testimonial-section .srs-author-name,
+      .srs-testimonial-section .srs-author-title {
+          font-size: 9px;
+          line-height: 13px;
+      }
+
+      .srs-testimonial-section .srs-cta-link {
+          font-size: 11px;
+          line-height: 14px;
+      }
+
+      .srs-testimonial-section .srs-logo {
+          max-width: 180px;
+          height: 32px;
+      }
+
+      .srs-testimonial-section .srs-logo-text {
+          font-size: 16px;
+      }
+  }
+</style>
+
+<div class="srs-testimonial-section-wrapper scroll-trigger animate--slide-in">
+  <div class="srs-container first">
+    <div class="testimonial-content-wrapper">
+      <h2 class="testimonial-title">
+        {{ section.settings.main_title }}
+      </h2>
+      <div class="srs-testimonial-card-wrapper">
+        {% for block in section.blocks %}
+          <div class="srs-testimonial-card-item" {{ block.shopify_attributes }}>
+            <div class="srs-testimonial-content">
+              <div class="srs-testimonial-header">
+                <div class="srs-quote-icon">
+                  <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_44_7878)">
+                    <g clip-path="url(#clip1_44_7878)">
+                    <path d="M17.5451 11.7833C17.5451 9.52064 15.9474 7.77651 13.4571 7.87077C13.692 4.71246 16.1354 1.97838 17.78 0.705626L17.3101 -0.00146484C13.88 2.16694 9.557 6.64517 9.557 11.2648C9.557 13.9046 11.0606 15.8373 13.5041 15.8373C15.9474 15.8373 17.5451 13.9517 17.5451 11.7833ZM7.98805 11.7833C7.98805 9.52064 6.39044 7.77651 3.90004 7.87077C4.13499 4.71246 6.57838 1.97838 8.22297 0.705626L7.75311 -0.00146484C4.32293 2.16694 0 6.64517 0 11.2648C0 13.9046 1.50363 15.8373 3.94702 15.8373C6.39044 15.8373 7.98805 13.9517 7.98805 11.7833Z" fill="white"/>
+                    </g>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_44_7878">
+                    <rect width="17.78" height="16.11" fill="white"/>
+                    </clipPath>
+                    <clipPath id="clip1_44_7878">
+                    <rect width="17.78" height="16.1131" fill="white" transform="translate(0 -0.00146484)"/>
+                    </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="srs-testimonial-text">
+                  {% if block.settings.card_type == 'type1' %}
+                    {{ block.settings.bold_text | replace: '<strong>', '<strong>' | replace: '</strong>', '</strong>' }}
+                  {% else %}
+                    {{ block.settings.quote_text | replace: '<br/>', '<br/>' }}
+                  {% endif %}
+                </div>
+              </div>
+
+              {% if block.settings.card_type == 'type1' %}
+                <div class="srs-testimonial-text underline">{{ block.settings.underlined_text }}</div>
+                <div class="srs-stackoverflow-logo">
+                  {% if block.settings.logo_image != blank %}
+                    <img src="{{ block.settings.logo_image | img_url: '300x' }}" alt="{{ block.settings.logo_text }}">
+                  {% else %}
+                    <img src="https://placehold.co/110x28" alt="Placeholder">
+                  {% endif %}
+                  <div class="srs-stackoverflow-text">{{ block.settings.logo_text }}</div>
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="srs-testimonial-footer">
+              {% if block.settings.card_type == 'type2' %}
+                <div class="srs-testimonial-author">
+                  {% if block.settings.author_image != blank %}
+                    <img
+                      class="srs-author-avatar"
+                      src="{{ block.settings.author_image | img_url: '100x100' }}"
+                      alt="{{ block.settings.author_name }}"
+                    >
+                  {% else %}
+                    <img class="srs-author-avatar" src="https://placehold.co/48x48" alt="Placeholder">
+                  {% endif %}
+                  <div class="srs-author-info">
+                    <div class="srs-author-name">{{ block.settings.author_name }}</div>
+                    <div class="srs-author-title">{{ block.settings.author_title }}</div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if block.settings.cta_link != blank %}
+                <a href="{{ block.settings.cta_link }}" class="srs-cta-link">
+                  {{ block.settings.cta_text }}
+                  <span class="srs-arrow-icon"></span>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="srs-container">
+    <div class="srs-left-part">
+      <div class="srs-content-wrapper">
+        <div class="srs-header-section">
+          <div class="srs-logo">
+            <div class="srs-logo-bg"></div>
+            {% if section.settings.logo_image != blank %}
+              <img src="{{ section.settings.logo_image | img_url: '300x' }}" alt="{{ section.settings.logo_text }}">
+            {% else %}
+              <div class="srs-logo-text">{{ section.settings.logo_text }}</div>
+            {% endif %}
+          </div>
+          <h2 class="srs-title">{{ section.settings.left_title }}</h2>
+        </div>
+
+        <div class="srs-stats-container">
+          <div class="srs-stat-item">
+            <div class="srs-stat-number">{{ section.settings.stat_1_number }}</div>
+            <div class="srs-stat-text">{{ section.settings.stat_1_text }}</div>
+          </div>
+          <div class="srs-stat-item">
+            <div class="srs-stat-number">{{ section.settings.stat_2_number }}</div>
+            <div class="srs-stat-text">{{ section.settings.stat_2_text }}</div>
+          </div>
+        </div>
+
+        {% if section.settings.cta_link != blank %}
+          <a href="{{ section.settings.cta_link }}" class="_rh-cta-button">
+            <div class="_rh-cta-button-bg"></div>
+            <div class="_rh-cta-button-overlay"></div>
+            <div class="_rh-cta-button-text">
+              {{ section.settings.cta_text }}
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0349 9H4.4502C4.30831 9 4.18953 8.95212 4.09386 8.85634C3.99808 8.76067 3.9502 8.64189 3.9502 8.5C3.9502 8.35812 3.99808 8.23934 4.09386 8.14367C4.18953 8.04789 4.30831 8 4.4502 8H12.0349L8.5887 4.55384C8.48958 4.45473 8.44064 4.33873 8.44186 4.20584C8.4432 4.07295 8.49553 3.95478 8.59886 3.85134C8.70231 3.75478 8.81942 3.70478 8.9502 3.70134C9.08097 3.69789 9.19808 3.74789 9.30153 3.85134L13.5284 8.07817C13.5908 8.14062 13.6348 8.20645 13.6604 8.27567C13.686 8.34489 13.6989 8.41967 13.6989 8.5C13.6989 8.58034 13.686 8.65512 13.6604 8.72434C13.6348 8.79356 13.5908 8.85939 13.5284 8.92184L9.30153 13.1487C9.2092 13.241 9.09486 13.2882 8.95853 13.2903C8.8222 13.2924 8.70231 13.2452 8.59886 13.1487C8.49553 13.0452 8.44386 12.9264 8.44386 12.7923C8.44386 12.6581 8.49553 12.5393 8.59886 12.4358L12.0349 9Z" fill="white"/>
+              </svg>
+            </div>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="srs-right-part">
+      <div class="srs-testimonial-card">
+        {% if section.settings.right_image != blank %}
+          <img src="{{ section.settings.right_image | img_url: '800x' }}" alt="">
+        {% else %}
+          <img src="https://placehold.co/625x441" alt="Placeholder">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

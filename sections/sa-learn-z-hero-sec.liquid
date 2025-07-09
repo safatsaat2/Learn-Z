@@ -1,0 +1,1240 @@
+<svg style="display: none;">
+  <defs>
+    <!-- Rating Star Icon -->
+    <g id="star-icon">
+      <path d="M10.7305 4.44232C10.6602 4.22481 10.4673 4.07033 10.2391 4.04976L7.13878 3.76825L5.91285 0.898843C5.82246 0.688553 5.61659 0.552429 5.38786 0.552429C5.15913 0.552429 4.95327 0.688553 4.86287 0.899335L3.63694 3.76825L0.536177 4.04976C0.308348 4.07082 0.115923 4.22481 0.0451983 4.44232C-0.0255269 4.65982 0.0397894 4.89838 0.212136 5.04877L2.55557 7.10398L1.86455 10.1479C1.81398 10.3718 1.90085 10.6031 2.08656 10.7373C2.18638 10.8095 2.30316 10.8462 2.42093 10.8462C2.52247 10.8462 2.62319 10.8188 2.71358 10.7647L5.38786 9.1664L8.06116 10.7647C8.25678 10.8824 8.50338 10.8717 8.68867 10.7373C8.87446 10.6027 8.96125 10.3713 8.91068 10.1479L8.21966 7.10398L10.5631 5.04917C10.7354 4.89838 10.8012 4.66023 10.7305 4.44232Z" fill="#FFC107" />
+    </g>
+  </defs>
+</svg>
+<section class="rh-learn_z-hero-sec">
+  <div class="container_rh">
+    <div class="_rh-hero-main">
+      <div class="_rh-hero-content">
+        <div class="_rh-hero-content-inner">
+          {% if section.settings.show_flash_badge %}
+            <div class="_rh-flash-sale-badge">
+              <div class="_rh-flash-sale-inner">
+                <div class="_rh-flash-sale-text">
+                  {{ section.settings.flash_badge_text | default: '24-Hour Flash Sale' }}
+                </div>
+              </div>
+              <div class="_rh-flash-sale-glow"></div>
+            </div>
+          {% endif %}
+          <div class="_rh-main-heading">
+            <span class="_rh-heading-white">
+              {{- section.settings.main_heading | default: 'Learn what you need.' | newline_to_br -}}
+            </span>
+          </div>
+        </div>
+        {% if section.settings.show_main_cta %}
+          <a href="{{ section.settings.main_cta_url | default: '#' }}" class="_rh-cta-button">
+            <div class="_rh-cta-button-bg"></div>
+            <div class="_rh-cta-button-overlay"></div>
+            <div class="_rh-cta-button-text">{{ section.settings.main_cta_text | default: 'Starting at $14.99' }}</div>
+          </a>
+        {% endif %}
+      </div>
+      {% if section.settings.show_glass_section %}
+        <div class="_rh-glass-section">
+          <div class="_rh-glass-content">
+            <div class="_rh-glass-header">
+              <div class="_rh-glass-heading">
+                <span class="_rh-glass-heading-white">
+                  {{- section.settings.glass_heading | default: 'Ready to reimagine your career?' -}}
+                </span>
+              </div>
+              {% if section.settings.glass_description != blank %}
+                <div class="_rh-glass-description">
+                  {{ section.settings.glass_description }}
+                </div>
+              {% endif %}
+            </div>
+            {% if section.blocks.size > 0 %}
+              <div class="_rh-career-cards">
+                {% for block in section.blocks %}
+                  {% case block.type %}
+                    {% when 'career_card' %}
+                      <div class="_rh-career-card" {{ block.shopify_attributes }}>
+                        <div class="_rh-career-card-bg"></div>
+                        {% if block.settings.card_icon != blank %}
+                          <div class="_rh-career-card-icon">
+                            {% if block.settings.card_icon_custom != blank %}
+                              {{ block.settings.card_icon_custom }}
+                            {% else %}
+                              <img
+                                src="{{ block.settings.card_icon | img_url: '120x120' }}"
+                                alt="{{ block.settings.card_title }}"
+                                loading="lazy"
+                              >
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                        <div class="_rh-career-card-content">
+                          <div class="_rh-career-card-title">
+                            {{ block.settings.card_title | default: 'Career Title' }}
+                          </div>
+                          <div class="_rh-career-card-stats">
+                            {% if block.settings.show_rating %}
+                              <div class="_rh-card-stat">
+                                <div class="_rh-card-stat-icon">
+                                  <svg
+                                    width="11"
+                                    height="11"
+                                    viewBox="0 0 11 11"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <use href="#star-icon" />
+                                  </svg>
+                                </div>
+                                <div class="_rh-card-stat-text">{{ block.settings.rating | default: '4.7' }}</div>
+                              </div>
+                            {% endif %}
+                            {% if block.settings.ratings_count != blank %}
+                              <div class="_rh-card-stat">
+                                <div class="_rh-card-stat-text">{{ block.settings.ratings_count }} ratings</div>
+                              </div>
+                            {% endif %}
+                            {% if block.settings.total_hours != blank %}
+                              <div class="_rh-card-stat">
+                                <div class="_rh-card-stat-text">{{ block.settings.total_hours }} total hours</div>
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                  {% endcase %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% if section.settings.show_final_cta %}
+              <a href="{{ section.settings.final_cta_url | default: '#' }}" class="_rh-final-cta">
+                <div class="_rh-final-cta-bg"></div>
+                <div class="_rh-final-cta-overlay"></div>
+                <div class="_rh-final-cta-text">
+                  {{ section.settings.final_cta_text | default: 'All Career Accelerators' }}
+                </div>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .rh-learn_z-hero-sec {
+    background: {{ section.settings.section_bg_color | default: '#000' }};
+    padding-top: {{ section.settings.section_padding_top_mobile | default: 60 }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_mobile | default: 60 }}px;
+    padding-left: {{ section.settings.section_padding_left_right_mobile | default: 20 }}px;
+    padding-right: {{ section.settings.section_padding_left_right_mobile | default: 20 }}px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .rh-learn_z-hero-sec .container_rh {
+    max-width: {{ section.settings.container_max_width | default: '1300px' }};
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Main hero wrapper */
+  ._rh-hero-main {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  /* Hero content section */
+  ._rh-hero-content {
+    width: 100%;
+    max-width: 751px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  ._rh-hero-content-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Flash sale badge */
+  ._rh-flash-sale-badge {
+    width: 100%;
+    max-width: 350px;
+    height: 40px;
+    background: {{ section.settings.flash_badge_bg | default: 'linear-gradient(171deg, rgba(255, 255, 255, 0.3) 0%, rgba(171, 171, 171, 0.15) 100%)' }};
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  ._rh-flash-sale-badge:hover {
+    transform: scale(1.02);
+    background: linear-gradient(171deg, rgba(255, 255, 255, 0.4) 0%, rgba(171, 171, 171, 0.25) 100%);
+  }
+
+  ._rh-flash-sale-badge:hover ._rh-flash-sale-glow {
+    opacity: 1.5;
+    width: 120px;
+  }
+
+  ._rh-flash-sale-inner {
+    width: 100%;
+    height: 38px;
+    background: #141414;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  ._rh-flash-sale-text {
+    color: {{ section.settings.flash_badge_text_color | default: 'white' }};
+    font-size: {{ section.settings.flash_badge_font_size | default: '18px' }};
+    font-family: Inter
+    , sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  ._rh-flash-sale-glow {
+    width: 83px;
+    height: 1px;
+    background: radial-gradient(ellipse 42% 50% at 50% 50%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    bottom: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Main heading */
+  ._rh-main-heading {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  ._rh-main-heading ._rh-heading-white {
+    background: {{ section.settings.main_heading_gradient | default: 'radial-gradient(70.54% 70.54% at 50% 50%, #ffffff 0%, rgba(255, 255, 255, 0.573) 92.71%, rgba(255, 255, 255, 0.6) 92.72%)' }};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp({{ section.settings.main_heading_font_size_mobile | default: '32px' }}, 8vw, {{ section.settings.main_heading_font_size_desktop | default: '72px' }});
+    font-family: Inter
+    , sans-serif;
+    font-weight: {{ section.settings.main_heading_font_weight | default: '600' }};
+    word-wrap: break-word;
+    line-height: normal;
+  }
+
+  /* CTA Button */
+  ._rh-cta-button {
+    width: 100%;
+    max-width: {{ section.settings.main_cta_max_width | default: '263px' }};
+    height: {{ section.settings.main_cta_height | default: '55px' }};
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  ._rh-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(158, 110, 229, 0.4);
+  }
+
+  ._rh-cta-button:hover ._rh-cta-button-bg {
+    background: {{ section.settings.main_cta_hover_bg | default: 'linear-gradient(90deg, #b684f0 0%, #ff89fb 100%)' }};
+  }
+
+  ._rh-cta-button:active {
+    transform: translateY(0);
+  }
+
+  ._rh-cta-button-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: {{ section.settings.main_cta_bg | default: 'linear-gradient(90deg, #9e6ee5 0%, #fa75f8 100%)' }};
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+
+  ._rh-cta-button-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+
+  ._rh-cta-button-text {
+    color: {{ section.settings.main_cta_text_color | default: 'white' }};
+    font-size: {{ section.settings.main_cta_font_size | default: '18px' }};
+    font-family: Inter
+    , sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    z-index: 1;
+  }
+
+  /* Glass morphism section */
+  ._rh-glass-section {
+    width: 100%;
+    max-width: 1300px;
+    background: {{ section.settings.glass_bg | default: 'rgba(29.9, 23.14, 39.86, 0.35)' }};
+    border-radius: 15px;
+    border: 1.5px {{ section.settings.glass_border_color | default: 'rgba(255, 255, 255, 0.15)' }} solid;
+    -webkit-backdrop-filter: blur(17.5px);
+    backdrop-filter: blur(17.5px);
+    padding: 30px 20px;
+    margin-top: 30px;
+  }
+
+  ._rh-glass-content {
+    width: 100%;
+    max-width: 1128px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+  }
+
+  ._rh-glass-header {
+    width: 100%;
+    max-width: 653px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+  }
+
+  ._rh-glass-heading {
+    text-align: center;
+  }
+
+  ._rh-glass-heading-white {
+    background: {{ section.settings.glass_heading_gradient | default: 'radial-gradient(70.54% 70.54% at 50% 50%, #ffffff 0%, rgba(255, 255, 255, 0.573) 92.71%, rgba(255, 255, 255, 0.6) 92.72%)' }};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp({{ section.settings.glass_heading_font_size_mobile | default: '24px' }}, 5vw, {{ section.settings.glass_heading_font_size_desktop | default: '38.18px' }});
+    font-family: Inter
+    , sans-serif;
+    font-weight: {{ section.settings.glass_heading_font_weight | default: '700' }};
+    word-wrap: break-word;
+    line-height: normal;
+  }
+
+  ._rh-glass-description {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: {{ section.settings.glass_description_color | default: 'white' }};
+    font-size: clamp(12px, 2.5vw, {{ section.settings.glass_description_font_size | default: '13.88px' }});
+    font-family: Inter
+    , sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    word-wrap: break-word;
+  }
+
+  /* Career cards container */
+  ._rh-career-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax({{ section.settings.card_min_width | default: '300px' }}, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: {{ section.settings.cards_gap | default: '20px' }};
+    max-width: 1128px;
+  }
+
+  ._rh-career-card {
+    width: 100%;
+    max-width: 360px;
+    background: {{ section.settings.card_bg | default: 'rgba(255, 255, 255, 0.08)' }};
+    overflow: hidden;
+    border-radius: 7px;
+    outline: 1px {{ section.settings.card_border_color | default: 'rgba(255, 255, 255, 0.25)' }} solid;
+    outline-offset: -1px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  ._rh-career-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    outline: 1px rgba(255, 255, 255, 0.4) solid;
+    box-shadow: 0 10px 30px rgba(158, 110, 229, 0.2);
+  }
+
+  ._rh-career-card:hover ._rh-career-card-bg {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(153, 56, 151, 0.15) 100%);
+  }
+
+  ._rh-career-card:hover ._rh-career-card-icon svg,
+  ._rh-career-card:hover ._rh-career-card-icon img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  ._rh-career-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(153, 56, 151, 0.09) 100%);
+    transition: background 0.3s ease;
+  }
+
+  /* Career card icons */
+  ._rh-career-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+
+  ._rh-career-card-icon svg,
+  ._rh-career-card-icon img {
+    max-width: 120px;
+    max-height: 90px;
+    width: auto;
+    height: auto;
+    transition: all 0.3s ease;
+  }
+
+  ._rh-career-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    z-index: 1;
+  }
+
+  ._rh-career-card-title {
+    color: {{ section.settings.card_title_color | default: 'white' }};
+    font-size: clamp(16px, 3vw, {{ section.settings.card_title_font_size | default: '20.82px' }});
+    font-family: Inter
+    , sans-serif;
+    font-weight: {{ section.settings.card_title_font_weight | default: '700' }};
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  ._rh-career-card-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  ._rh-card-stat {
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px {{ section.settings.card_stat_border_color | default: '#d1d2e0' }} solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  ._rh-card-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ._rh-card-stat-text {
+    color: {{ section.settings.card_stat_text_color | default: 'white' }};
+    font-size: clamp(11px, 2vw, {{ section.settings.card_stat_font_size | default: '13.88px' }});
+    font-family: Inter
+    , sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.24px;
+    word-wrap: break-word;
+  }
+
+  /* Final CTA button */
+  ._rh-final-cta {
+    width: 100%;
+    max-width: {{ section.settings.final_cta_max_width | default: '234px' }};
+    height: {{ section.settings.final_cta_height | default: '43px' }};
+    border-radius: 7px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  ._rh-final-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(158, 110, 229, 0.3);
+  }
+
+  ._rh-final-cta:hover ._rh-final-cta-bg {
+    background: {{ section.settings.final_cta_hover_bg | default: 'linear-gradient(90deg, #b684f0 0%, #ff89fb 100%)' }};
+  }
+
+  ._rh-final-cta:active {
+    transform: translateY(0);
+  }
+
+  ._rh-final-cta-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: {{ section.settings.final_cta_bg | default: 'linear-gradient(90deg, #9e6ee5 0%, #fa75f8 100%)' }};
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  ._rh-final-cta-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  ._rh-final-cta-text {
+    color: {{ section.settings.final_cta_text_color | default: 'white' }};
+    font-size: clamp(14px, 2.5vw, {{ section.settings.final_cta_font_size | default: '17.35px' }});
+    font-family: Inter
+    , sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    z-index: 1;
+  }
+
+  /* Mobile First Responsive Design */
+
+  /* Small Mobile (max-width: 480px) */@media (max-width: 480px) {
+    .rh-learn_z-hero-sec {
+      padding-top: {{ section.settings.section_padding_top_mobile | default: 40 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_mobile | default: 40 }}px;
+      padding-left: 15px;
+      padding-right: 15px;
+      min-height: auto;
+    }
+
+    ._rh-hero-main {
+      gap: 20px;
+    }
+
+    ._rh-hero-content {
+      gap: 15px;
+    }
+
+    ._rh-hero-content-inner {
+      gap: 15px;
+    }
+
+    ._rh-flash-sale-badge {
+      height: 36px;
+      max-width: 280px;
+    }
+
+    ._rh-flash-sale-inner {
+      height: 34px;
+    }
+
+    ._rh-flash-sale-text {
+      font-size: 14px;
+    }
+
+    ._rh-cta-button {
+      height: 48px;
+      max-width: 240px;
+    }
+
+    ._rh-cta-button-text {
+      font-size: 16px;
+    }
+
+    ._rh-glass-section {
+      padding: 20px 15px;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+
+    ._rh-glass-content {
+      gap: 20px;
+    }
+
+    ._rh-glass-header {
+      gap: 12px;
+    }
+
+    ._rh-career-cards {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    ._rh-career-card {
+      padding: 20px;
+    }
+
+    ._rh-career-card-icon svg,
+    ._rh-career-card-icon img {
+      max-width: 80px;
+      max-height: 60px;
+    }
+
+    ._rh-career-card-content {
+      gap: 12px;
+    }
+
+    ._rh-career-card-stats {
+      gap: 6px;
+    }
+
+    ._rh-card-stat {
+      height: 24px;
+      padding: 0 8px;
+    }
+
+    ._rh-final-cta {
+      height: 40px;
+      max-width: 200px;
+    }
+  }
+
+  /* Medium Mobile to Small Tablet (481px - 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .rh-learn_z-hero-sec {
+      padding-top: {{ section.settings.section_padding_top_tablet | default: 50 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_tablet | default: 50 }}px;
+      padding-left: {{ section.settings.section_padding_left_right_tablet | default: 20 }}px;
+      padding-right: {{ section.settings.section_padding_left_right_tablet | default: 20 }}px;
+    }
+
+    ._rh-hero-main {
+      gap: 25px;
+    }
+
+    ._rh-flash-sale-badge {
+      max-width: 320px;
+    }
+
+    ._rh-flash-sale-text {
+      font-size: 16px;
+    }
+
+    ._rh-glass-section {
+      padding: 25px 20px;
+      margin-top: 25px;
+    }
+
+    ._rh-glass-content {
+      gap: 25px;
+    }
+
+    ._rh-career-cards {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    ._rh-career-card-icon svg,
+    ._rh-career-card-icon img {
+      max-width: 100px;
+      max-height: 75px;
+    }
+  }
+
+  /* Large Tablet (769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .rh-learn_z-hero-sec {
+      padding-top: {{ section.settings.section_padding_top_tablet | default: 70 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_tablet | default: 70 }}px;
+      padding-left: {{ section.settings.section_padding_left_right_tablet | default: 30 }}px;
+      padding-right: {{ section.settings.section_padding_left_right_tablet | default: 30 }}px;
+    }
+
+    ._rh-hero-main {
+      gap: 35px;
+    }
+
+    ._rh-flash-sale-text {
+      font-size: 20px;
+    }
+
+    ._rh-glass-section {
+      padding: 35px 25px;
+      margin-top: 35px;
+    }
+
+    ._rh-glass-content {
+      gap: 35px;
+    }
+
+    ._rh-career-cards {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    ._rh-career-card-icon svg,
+    ._rh-career-card-icon img {
+      max-width: 110px;
+      max-height: 85px;
+    }
+  }
+
+  /* Desktop (1025px and up) */
+  @media (min-width: 1025px) {
+    .rh-learn_z-hero-sec {
+      padding-top: {{ section.settings.section_padding_top_desktop | default: 100 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_desktop | default: 100 }}px;
+      padding-left: {{ section.settings.section_padding_left_right_desktop | default: 20 }}px;
+      padding-right: {{ section.settings.section_padding_left_right_desktop | default: 20 }}px;
+    }
+
+    ._rh-hero-main {
+      gap: 40px;
+    }
+
+    ._rh-hero-content {
+      gap: 25px;
+    }
+
+    ._rh-hero-content-inner {
+      gap: 25px;
+    }
+
+    ._rh-flash-sale-text {
+      font-size: 22px;
+    }
+
+    ._rh-glass-section {
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    ._rh-glass-content {
+      gap: 40px;
+    }
+
+    ._rh-glass-header {
+      gap: 20px;
+    }
+
+    ._rh-career-cards {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Learn Z Hero Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "container_max_width",
+      "label": "Container Max Width",
+      "default": "1300px"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_mobile",
+      "label": "Section Top Padding (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }, {
+      "type": "range",
+      "id": "section_padding_bottom_mobile",
+      "label": "Section Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }, {
+      "type": "range",
+      "id": "section_padding_left_right_mobile",
+      "label": "Section Left/Right Padding (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    }, {
+      "type": "range",
+      "id": "section_padding_top_tablet",
+      "label": "Section Top Padding (Tablet)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    }, {
+      "type": "range",
+      "id": "section_padding_bottom_tablet",
+      "label": "Section Bottom Padding (Tablet)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    }, {
+      "type": "range",
+      "id": "section_padding_left_right_tablet",
+      "label": "Section Left/Right Padding (Tablet)",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    }, {
+      "type": "range",
+      "id": "section_padding_top_desktop",
+      "label": "Section Top Padding (Desktop)",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    }, {
+      "type": "range",
+      "id": "section_padding_bottom_desktop",
+      "label": "Section Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    }, {
+      "type": "range",
+      "id": "section_padding_left_right_desktop",
+      "label": "Section Left/Right Padding (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    }, {
+      "type": "header",
+      "content": "Flash Badge Settings"
+    }, {
+      "type": "checkbox",
+      "id": "show_flash_badge",
+      "label": "Show Flash Badge",
+      "default": true
+    }, {
+      "type": "text",
+      "id": "flash_badge_text",
+      "label": "Flash Badge Text",
+      "default": "24-Hour Flash Sale"
+    }, {
+      "type": "color",
+      "id": "flash_badge_text_color",
+      "label": "Flash Badge Text Color",
+      "default": "#ffffff"
+    }, {
+      "type": "text",
+      "id": "flash_badge_font_size",
+      "label": "Flash Badge Font Size",
+      "default": "18px"
+    }, {
+      "type": "header",
+      "content": "Main Heading Settings"
+    }, {
+      "type": "richtext",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "<p>Learn what you need.<br/>Sale ends tonight</p>"
+    }, {
+      "type": "text",
+      "id": "main_heading_font_size_mobile",
+      "label": "Main Heading Font Size (Mobile)",
+      "default": "32px"
+    }, {
+      "type": "text",
+      "id": "main_heading_font_size_desktop",
+      "label": "Main Heading Font Size (Desktop)",
+      "default": "72px"
+    }, {
+      "type": "select",
+      "id": "main_heading_font_weight",
+      "label": "Main Heading Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        }, {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    }, {
+      "type": "header",
+      "content": "Main CTA Button Settings"
+    }, {
+      "type": "checkbox",
+      "id": "show_main_cta",
+      "label": "Show Main CTA Button",
+      "default": true
+    }, {
+      "type": "text",
+      "id": "main_cta_text",
+      "label": "Main CTA Text",
+      "default": "Starting at $14.99"
+    }, {
+      "type": "url",
+      "id": "main_cta_url",
+      "label": "Main CTA URL"
+    }, {
+      "type": "color",
+      "id": "main_cta_text_color",
+      "label": "Main CTA Text Color",
+      "default": "#ffffff"
+    }, {
+      "type": "text",
+      "id": "main_cta_font_size",
+      "label": "Main CTA Font Size",
+      "default": "18px"
+    }, {
+      "type": "text",
+      "id": "main_cta_max_width",
+      "label": "Main CTA Max Width",
+      "default": "263px"
+    }, {
+      "type": "text",
+      "id": "main_cta_height",
+      "label": "Main CTA Height",
+      "default": "55px"
+    }, {
+      "type": "header",
+      "content": "Glass Section Settings"
+    }, {
+      "type": "checkbox",
+      "id": "show_glass_section",
+      "label": "Show Glass Section",
+      "default": true
+    }, {
+      "type": "text",
+      "id": "glass_heading",
+      "label": "Glass Section Heading",
+      "default": "Ready to reimagine your career?"
+    }, {
+      "type": "richtext",
+      "id": "glass_description",
+      "label": "Glass Section Description",
+      "default": "<p>Get the skills and real-world experience employers want with Career Accelerators.</p>"
+    }, {
+      "type": "text",
+      "id": "glass_heading_font_size_mobile",
+      "label": "Glass Heading Font Size (Mobile)",
+      "default": "24px"
+    }, {
+      "type": "text",
+      "id": "glass_heading_font_size_desktop",
+      "label": "Glass Heading Font Size (Desktop)",
+      "default": "38.18px"
+    }, {
+      "type": "select",
+      "id": "glass_heading_font_weight",
+      "label": "Glass Heading Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        }, {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "700"
+    }, {
+      "type": "color",
+      "id": "glass_description_color",
+      "label": "Glass Description Text Color",
+      "default": "#ffffff"
+    }, {
+      "type": "text",
+      "id": "glass_description_font_size",
+      "label": "Glass Description Font Size",
+      "default": "13.88px"
+    }, {
+      "type": "header",
+      "content": "Career Cards Settings"
+    }, {
+      "type": "text",
+      "id": "card_min_width",
+      "label": "Card Minimum Width",
+      "default": "300px"
+    }, {
+      "type": "text",
+      "id": "cards_gap",
+      "label": "Cards Gap",
+      "default": "20px"
+    }, {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#ffffff"
+    }, {
+      "type": "text",
+      "id": "card_title_font_size",
+      "label": "Card Title Font Size",
+      "default": "20.82px"
+    }, {
+      "type": "select",
+      "id": "card_title_font_weight",
+      "label": "Card Title Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        }, {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "700"
+    }, {
+      "type": "color",
+      "id": "card_stat_text_color",
+      "label": "Card Stats Text Color",
+      "default": "#ffffff"
+    }, {
+      "type": "text",
+      "id": "card_stat_font_size",
+      "label": "Card Stats Font Size",
+      "default": "13.88px"
+    }, {
+      "type": "color",
+      "id": "card_stat_border_color",
+      "label": "Card Stats Border Color",
+      "default": "#d1d2e0"
+    }, {
+      "type": "header",
+      "content": "Final CTA Button Settings"
+    }, {
+      "type": "checkbox",
+      "id": "show_final_cta",
+      "label": "Show Final CTA Button",
+      "default": true
+    }, {
+      "type": "text",
+      "id": "final_cta_text",
+      "label": "Final CTA Text",
+      "default": "All Career Accelerators"
+    }, {
+      "type": "url",
+      "id": "final_cta_url",
+      "label": "Final CTA URL"
+    }, {
+      "type": "color",
+      "id": "final_cta_text_color",
+      "label": "Final CTA Text Color",
+      "default": "#ffffff"
+    }, {
+      "type": "text",
+      "id": "final_cta_font_size",
+      "label": "Final CTA Font Size",
+      "default": "17.35px"
+    }, {
+      "type": "text",
+      "id": "final_cta_max_width",
+      "label": "Final CTA Max Width",
+      "default": "234px"
+    }, {
+      "type": "text",
+      "id": "final_cta_height",
+      "label": "Final CTA Height",
+      "default": "43px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "career_card",
+      "name": "Career Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Full Stack Web Developer"
+        },
+        {
+          "type": "image_picker",
+          "id": "card_icon",
+          "label": "Card Icon Image"
+        },
+        {
+          "type": "html",
+          "id": "card_icon_custom",
+          "label": "Custom Icon SVG Code",
+          "info": "Use this if you want to add custom SVG code instead of an image. This will override the image above."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_rating",
+          "label": "Show Rating",
+          "default": true
+        }, {
+          "type": "text",
+          "id": "rating",
+          "label": "Rating",
+          "default": "4.7"
+        }, {
+          "type": "text",
+          "id": "ratings_count",
+          "label": "Ratings Count",
+          "default": "447K",
+          "info": "Example: 447K, 3.4K, etc."
+        }, {
+          "type": "text",
+          "id": "total_hours",
+          "label": "Total Hours",
+          "default": "87.6",
+          "info": "Example: 87.6, 28.4, etc."
+        }
+      ]
+    }
+  ],
+    "presets": [
+  {
+    "name": "SA Learn Z Hero Section",
+    "blocks": [
+      {
+        "type": "career_card",
+        "settings": {
+          "card_title": "Full Stack Web Developer",
+          "card_icon_custom": "<svg width=\"120\" height=\"90\" viewBox=\"0 0 120 90\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"10\" y=\"15\" width=\"100\" height=\"60\" rx=\"5\" fill=\"#A365FF\" fill-opacity=\"0.65\"/><rect x=\"15\" y=\"20\" width=\"90\" height=\"35\" rx=\"2\" fill=\"#000\"/><circle cx=\"20\" cy=\"12\" r=\"2\" fill=\"#FF5F5F\"/><circle cx=\"28\" cy=\"12\" r=\"2\" fill=\"#FFBD2E\"/><circle cx=\"36\" cy=\"12\" r=\"2\" fill=\"#27CA3F\"/><text x=\"20\" y=\"32\" fill=\"#00FF00\" font-family=\"monospace\" font-size=\"8\">&lt;div&gt;</text><text x=\"25\" y=\"42\" fill=\"#FFFFFF\" font-family=\"monospace\" font-size=\"7\">Hello World</text><text x=\"20\" y=\"50\" fill=\"#00FF00\" font-family=\"monospace\" font-size=\"8\">&lt;/div&gt;</text><rect x=\"15\" y=\"58\" width=\"90\" height=\"12\" rx=\"1\" fill=\"#333\"/><circle cx=\"22\" cy=\"64\" r=\"1\" fill=\"#A365FF\"/><text x=\"28\" y=\"67\" fill=\"#FFF\" font-family=\"monospace\" font-size=\"6\">Terminal</text></svg>",
+          "rating": "4.7",
+          "ratings_count": "447K",
+          "total_hours": "87.6"
+        }
+      }, {
+        "type": "career_card",
+        "settings": {
+          "card_title": "Digital Marketer",
+          "card_icon_custom": "<svg width=\"120\" height=\"90\" viewBox=\"0 0 120 90\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"45\" r=\"35\" fill=\"#A365FF\" fill-opacity=\"0.65\"/><path d=\"M40 35 L50 25 L50 30 L75 30 L75 35 L75 40 L50 40 L50 45 Z\" fill=\"#FFF\"/><circle cx=\"60\" cy=\"45\" r=\"25\" stroke=\"#FFF\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"60\" cy=\"45\" r=\"15\" stroke=\"#FFF\" stroke-width=\"1.5\" fill=\"none\"/><circle cx=\"60\" cy=\"45\" r=\"5\" fill=\"#FFF\"/><path d=\"M45 25 Q40 20 35 25 Q40 30 45 25\" fill=\"#FFD700\"/><path d=\"M75 25 Q80 20 85 25 Q80 30 75 25\" fill=\"#FFD700\"/><path d=\"M45 65 Q40 70 35 65 Q40 60 45 65\" fill=\"#FFD700\"/><path d=\"M75 65 Q80 70 85 65 Q80 60 75 65\" fill=\"#FFD700\"/></svg>",
+          "rating": "4.5",
+          "ratings_count": "3.4K",
+          "total_hours": "28.4"
+        }
+      }, {
+        "type": "career_card",
+        "settings": {
+          "card_title": "Data Scientist",
+          "card_icon_custom": "<svg width=\"120\" height=\"90\" viewBox=\"0 0 120 90\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"20\" y=\"20\" width=\"80\" height=\"50\" rx=\"5\" fill=\"#A365FF\" fill-opacity=\"0.65\"/><rect x=\"25\" y=\"55\" width=\"8\" height=\"10\" fill=\"#00C851\"/><rect x=\"38\" y=\"45\" width=\"8\" height=\"20\" fill=\"#00C851\"/><rect x=\"51\" y=\"35\" width=\"8\" height=\"30\" fill=\"#00C851\"/><rect x=\"64\" y=\"40\" width=\"8\" height=\"25\" fill=\"#00C851\"/><rect x=\"77\" y=\"50\" width=\"8\" height=\"15\" fill=\"#00C851\"/><circle cx=\"30\" cy=\"30\" r=\"2\" fill=\"#FFF\"/><circle cx=\"45\" cy=\"25\" r=\"2\" fill=\"#FFF\"/><circle cx=\"60\" cy=\"20\" r=\"2\" fill=\"#FFF\"/><circle cx=\"75\" cy=\"25\" r=\"2\" fill=\"#FFF\"/><circle cx=\"90\" cy=\"30\" r=\"2\" fill=\"#FFF\"/><path d=\"M30 30 L45 25 L60 20 L75 25 L90 30\" stroke=\"#FFF\" stroke-width=\"2\" fill=\"none\"/><text x=\"30\" y=\"82\" fill=\"#A365FF\" font-family=\"Arial\" font-size=\"10\" font-weight=\"bold\">DATA</text></svg>",
+          "rating": "4.6",
+          "ratings_count": "217K",
+          "total_hours": "46.8"
+        }
+      }
+    ]
+  }
+]
+}
+{% endschema %}
