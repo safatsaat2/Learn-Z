@@ -88,6 +88,40 @@
       "name": "SA Single hero Section",
       "settings": {}
     },
+    "sa_learn_z_what_you_learn_644KeQ": {
+      "type": "sa-learn-z-what-you-learn",
+      "name": "SA - What You'll Learn",
+      "settings": {
+        "section_bg_color": "#000000",
+        "container_max_width": "1300px",
+        "section_title": "What you'll learn",
+        "show_cta": true,
+        "cta_text": "Course content",
+        "custom_numbering": "start_from_one",
+        "number_start_value": 1,
+        "section_padding_top_mobile": 40,
+        "section_padding_bottom_mobile": 40,
+        "section_padding_top_tablet": 60,
+        "section_padding_bottom_tablet": 60,
+        "section_padding_left_right_tablet": 30,
+        "section_padding_top_desktop": 80,
+        "section_padding_bottom_desktop": 80,
+        "section_padding_left_right_desktop": 40
+      }
+    },
+    "sa_learn_z_skill_matter_XefUnY": {
+      "type": "sa-learn-z-skill-matter",
+      "name": "SA Learn Z - Skills Matter",
+      "settings": {
+        "section_title": "Learn the skills that matter most",
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50,
+        "padding_top_tablet": 50,
+        "padding_bottom_tablet": 50,
+        "padding_top_desktop": 50,
+        "padding_bottom_desktop": 50
+      }
+    },
     "sa_testimonials_7NV7dn": {
       "type": "sa-testimonials",
       "blocks": {
@@ -301,6 +335,8 @@
   "order": [
     "main",
     "sa_single_hero_VCGBQG",
+    "sa_learn_z_what_you_learn_644KeQ",
+    "sa_learn_z_skill_matter_XefUnY",
     "sa_testimonials_7NV7dn",
     "sa_faq_section_CbTYgx",
     "related-products",

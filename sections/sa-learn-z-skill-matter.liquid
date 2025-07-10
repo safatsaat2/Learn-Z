@@ -1,0 +1,297 @@
+{% if product.metafields.custom.skills_matter %}
+  {% assign skills_matter = product.metafields.custom.skills_matter.value %}
+
+{% style %}
+  .rh-learn_z-matter-skills-sec {
+  background: #000000;
+  padding-top: {{ section.settings.padding_top_mobile }}px;
+  padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .rh-learn_z-matter-skills-sec {
+    padding-top: {{ section.settings.padding_top_tablet }}px;
+    padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .rh-learn_z-matter-skills-sec {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+}
+
+.rh-learn_z-matter-skills-sec .container_rh {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.rh-learn_z-matter-skills-sec ._rh-matter-skills-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.rh-learn_z-matter-skills-sec ._rh-matter-skills-title ._rh-heading-white {
+  background: radial-gradient(
+    70.54% 70.54% at 50% 50%,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.573) 92.71%,
+    rgba(255, 255, 255, 0.6) 92.72%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(24px, 5vw, 48px);
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  word-wrap: break-word;
+  line-height: normal;
+}
+.rh-learn_z-matter-skills-sec ._rh-matter-skills-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+._rh-skill-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(153, 56, 151, 0.17) 100%);
+  border-radius: 15px;
+  outline: 1px rgba(255, 255, 255, 0.25) solid;
+  outline-offset: -1px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+._rh-skill-card:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(153, 56, 151, 0.25) 100%);
+  outline: 1px rgba(255, 255, 255, 0.4) solid;
+}
+
+._rh-skill-card-icon {
+  background: #F2EFFF;
+  border-radius: 8px;
+  padding: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+._rh-skill-card-icon-inner {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+._rh-skill-card-icon-shape {
+  opacity: 0.90;
+  background: #7D52BB;
+}
+
+._rh-skill-card-icon-main {
+  width: 17px;
+  height: 17px;
+}
+
+._rh-skill-card-icon-accent {
+  width: 3.64px;
+  height: 5.87px;
+  background: #7D52BB;
+}
+
+._rh-skill-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+._rh-skill-card-title {
+  color: white;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  line-height: 19.2px;
+  word-wrap: break-word;
+}
+
+._rh-skill-card-learners {
+  color: white;
+  font-size: 12px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 16.8px;
+  word-wrap: break-word;
+}
+
+/* Responsive Design for Skill Cards */
+@media (max-width: 480px) {
+  .rh-learn_z-matter-skills-sec ._rh-matter-skills-cards {
+    gap: 20px;
+  }
+  
+  ._rh-skill-card {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .rh-learn_z-matter-skills-sec ._rh-matter-skills-cards {
+    gap: 25px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .rh-learn_z-matter-skills-sec ._rh-matter-skills-cards {
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .rh-learn_z-matter-skills-sec ._rh-matter-skills-cards {
+    gap: 40px;
+  }
+}
+{% endstyle %}
+
+<div class="rh-learn_z-matter-skills-sec">
+    <div class="container_rh">
+        <div class="_rh-matter-skills-title">
+            <span class="_rh-heading-white">{{ section.settings.section_title | default: "Learn the skills that matter most" }}</span>
+        </div>
+        <div class="_rh-matter-skills-cards">
+            {% for skill in skills_matter %}
+                {% assign title = skill.name.value %}
+                {% assign learners = skill.viewers.value %}
+                <div class="_rh-skill-card">
+                    <div class="_rh-skill-card-icon">
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.9" d="M6.15736 21.17C5.65219 21.17 5.22461 20.995 4.87461 20.645C4.52461 20.295 4.34961 19.8674 4.34961 19.3623V5.97779C4.34961 5.47262 4.52461 5.04504 4.87461 4.69504C5.22461 4.34504 5.65219 4.17004 6.15736 4.17004H19.5419C20.047 4.17004 20.4746 4.34504 20.8246 4.69504C21.1746 5.04504 21.3496 5.47262 21.3496 5.97779V19.3623C21.3496 19.8674 21.1746 20.295 20.8246 20.645C20.4746 20.995 20.047 21.17 19.5419 21.17H6.15736ZM6.15736 19.67H19.5419C19.6188 19.67 19.6894 19.6379 19.7534 19.5738C19.8175 19.5098 19.8496 19.4392 19.8496 19.3623V5.97779C19.8496 5.90079 19.8175 5.83029 19.7534 5.76629C19.6894 5.70212 19.6188 5.67004 19.5419 5.67004H6.15736C6.08036 5.67004 6.00986 5.70212 5.94586 5.76629C5.88169 5.83029 5.84961 5.90079 5.84961 5.97779V19.3623C5.84961 19.4392 5.88169 19.5098 5.94586 19.5738C6.00986 19.6379 6.08036 19.67 6.15736 19.67Z" fill="#7D52BB"/>
+                            <g opacity="0.5">
+                            <path d="M10.9666 11.0219L9.31852 12.6699L10.9763 14.3277C11.1313 14.4828 11.2088 14.6584 11.2088 14.8544C11.2088 15.0506 11.1313 15.2263 10.9763 15.3814C10.8211 15.5366 10.6413 15.6126 10.4368 15.6094C10.2323 15.6061 10.0557 15.5301 9.90702 15.3814L7.82802 13.3027C7.73452 13.209 7.66852 13.1103 7.63002 13.0064C7.59152 12.9026 7.57227 12.7904 7.57227 12.6699C7.57227 12.5494 7.59152 12.4373 7.63002 12.3334C7.66852 12.2296 7.73452 12.1308 7.82802 12.0372L9.89727 9.96797C10.0524 9.81297 10.2307 9.73547 10.432 9.73547C10.6332 9.73547 10.8113 9.81297 10.9666 9.96797C11.1217 10.1231 11.1977 10.3004 11.1946 10.4997C11.1912 10.699 11.1152 10.8731 10.9666 11.0219Z" fill="#7D52BB"/>
+                            <path d="M14.7227 14.3277L16.3804 12.6699L14.7227 11.0122C14.5677 10.857 14.4902 10.6814 14.4902 10.4855C14.4902 10.2893 14.5677 10.1136 14.7227 9.95847C14.7972 9.88414 14.8825 9.82839 14.9785 9.79122C15.0746 9.75405 15.1692 9.73547 15.2622 9.73547C15.3552 9.73547 15.4481 9.75405 15.541 9.79122C15.634 9.82839 15.7176 9.88414 15.792 9.95847L17.8709 12.0372C17.9644 12.1308 18.0305 12.2296 18.069 12.3334C18.1075 12.4373 18.1267 12.5494 18.1267 12.6699C18.1267 12.7904 18.1075 12.9026 18.069 13.0064C18.0305 13.1103 17.9644 13.209 17.8709 13.3027L15.792 15.3814C15.6368 15.5366 15.4586 15.6142 15.2574 15.6142C15.0561 15.6142 14.8779 15.5366 14.7227 15.3814C14.5677 15.2263 14.4918 15.049 14.495 14.8497C14.4981 14.6503 14.574 14.4763 14.7227 14.3277Z" fill="#7D52BB"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="_rh-skill-card-content">
+                        <div class="_rh-skill-card-title">{{ title }}</div>
+                        <div class="_rh-skill-card-learners">{{ learners }} viewers</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "SA Learn Z Skills Matter",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Learn the skills that matter most"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding (Mobile)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding (Mobile)",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Tablet Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding (Tablet)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding (Tablet)",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding (Desktop)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding (Desktop)",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA Learn Z - Skills Matter"
+    }
+  ]
+}
+{% endschema %}

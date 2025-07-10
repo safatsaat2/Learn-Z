@@ -1,0 +1,493 @@
+{% style %}
+  .rh-learn_z-what-you-learn-sec {
+    background: {{ section.settings.section_bg_color | default: '#000000' }};
+    padding-top: {{ section.settings.section_padding_top_mobile | default: 50 }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_mobile | default: 50 }}px;
+    padding-left: {{ section.settings.section_padding_left_right_mobile | default: 20 }}px;
+    padding-right: {{ section.settings.section_padding_left_right_mobile | default: 20 }}px;
+  }
+
+  .rh-learn_z-what-you-learn-sec .container_rh {
+    max-width: {{ section.settings.container_max_width | default: '1300px' }};
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  ._rh-what-you-learn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+  }
+
+  ._rh-what-you-learn-title {
+    background: radial-gradient(70.54% 70.54% at 50% 50%, #ffffff 0%, rgba(255, 255, 255, 0.573) 92.71%, rgba(255, 255, 255, 0.6) 92.72%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(24px, 5vw, 44px);
+    font-family: Inter
+    , sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    line-height: normal;
+    margin: 0;
+  }
+
+  ._rh-what-you-learn-cards {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+  }
+
+  ._rh-what-you-learn-card {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(153, 56, 151, 0.17) 100%);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  ._rh-what-you-learn-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 49, 111, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  ._rh-what-you-learn-card:hover::before {
+    transform: scale(1.05);
+    color: #6b4c8b;
+  }
+
+  ._rh-what-you-learn-card:nth-child(2),
+  ._rh-what-you-learn-card:nth-child(3) {
+    box-shadow: 0 4px 12px rgba(6, 17, 118, 0.08);
+  }
+
+  ._rh-what-you-learn-card::before {
+    content: var(--card-number);
+    position: absolute;
+    bottom: -31px;
+    right: 10px;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 900;
+    font-size: 220px;
+    color: #4a316f;
+    z-index: 1;
+    line-height: 1;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  ._rh-what-you-learn-card:hover::before {
+    transform: scale(1.05);
+    color: #6b4c8b;
+  }
+
+  ._rh-what-you-learn-card-title {
+    color: white;
+    font-size: 22px;
+    font-family: Inter
+    , sans-serif;
+    font-weight: 700;
+    line-height: 28.8px;
+    margin: 0 0 20px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+    margin: 0;
+  }
+
+  ._rh-what-you-learn-card:hover ._rh-what-you-learn-card-title {
+    color: #e0d4f7;
+  }
+
+  ._rh-what-you-learn-card-description {
+    color: white;
+    font-size: 14px;
+    font-family: Inter
+    , sans-serif;
+    font-weight: 400;
+    line-height: 22.4px;
+    margin: 0 0 45px;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+  }
+
+  ._rh-what-you-learn-card:hover ._rh-what-you-learn-card-description {
+    opacity: 0.9;
+  }
+
+  ._rh-what-you-learn-card-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+  }
+
+  ._rh-what-you-learn-card:hover ._rh-what-you-learn-card-content {
+    transform: translateX(5px);
+  }
+
+  ._rh-what-you-learn-card-content-text {
+    color: white;
+    font-size: 13.45px;
+    font-family: Inter
+    , sans-serif;
+    font-weight: 700;
+    line-height: 16.8px;
+  }
+
+  ._rh-what-you-learn-card-arrow {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml, %3Csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.99391 4.57542L0.600891 1.18261C0.48566 1.06724 0.426655 0.922227 0.423879 0.747575C0.421241 0.573061 0.480245 0.425412 0.600891 0.304627C0.721676 0.18398 0.868006 0.123657 1.03988 0.123657C1.21176 0.123657 1.35809 0.18398 1.47887 0.304627L5.22258 4.04834C5.30047 4.12636 5.35545 4.20862 5.38752 4.29511C5.41959 4.38161 5.43562 4.47504 5.43562 4.57542C5.43562 4.67579 5.41959 4.76923 5.38752 4.85572C5.35545 4.94222 5.30047 5.02447 5.22258 5.1025L1.47887 8.84621C1.3635 8.96144 1.21849 9.02044 1.04384 9.02322C0.869325 9.02586 0.721676 8.96686 0.600891 8.84621C0.480245 8.72542 0.419922 8.57909 0.419922 8.40722C0.419922 8.23534 0.480245 8.08901 0.600891 7.96823L3.99391 4.57542Z' fill='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 6px 10px;
+    transition: transform 0.3s ease;
+  }
+
+  ._rh-what-you-learn-card:hover ._rh-what-you-learn-card-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Responsive styles for What You'll Learn section */
+  @media (max-width: 480px) {
+    .rh-learn_z-what-you-learn-sec {
+      padding-top: {{ section.settings.section_padding_top_mobile | default: 40 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_mobile | default: 40 }}px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+
+    ._rh-what-you-learn-cards {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    ._rh-what-you-learn-card {
+      min-height: 150px;
+      padding: 20px;
+    }
+
+    ._rh-what-you-learn-card::before {
+      font-size: 100px;
+      bottom: -15px;
+      right: 8px;
+    }
+
+    ._rh-what-you-learn-card-title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    ._rh-what-you-learn-card-description {
+      font-size: 13px;
+      margin: 0 0 30px;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .rh-learn_z-what-you-learn-sec {
+      padding-top: {{ section.settings.section_padding_top_tablet | default: 50 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_tablet | default: 50 }}px;
+      padding-left: {{ section.settings.section_padding_left_right_tablet | default: 20 }}px;
+      padding-right: {{ section.settings.section_padding_left_right_tablet | default: 20 }}px;
+    }
+
+
+    ._rh-what-you-learn-cards {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    ._rh-what-you-learn-card {
+      min-height: 160px;
+    }
+
+    ._rh-what-you-learn-card::before {
+      font-size: 140px;
+      bottom: -20px;
+      right: 10px;
+    }
+
+    ._rh-what-you-learn-card-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .rh-learn_z-what-you-learn-sec {
+      padding-top: {{ section.settings.section_padding_top_tablet | default: 60 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_tablet | default: 60 }}px;
+      padding-left: {{ section.settings.section_padding_left_right_tablet | default: 30 }}px;
+      padding-right: {{ section.settings.section_padding_left_right_tablet | default: 30 }}px;
+    }
+
+
+    ._rh-what-you-learn-cards {
+      gap: 16px;
+    }
+
+    ._rh-what-you-learn-card {
+      padding: 20px;
+    }
+
+    ._rh-what-you-learn-card::before {
+      font-size: 170px;
+      bottom: -25px;
+      right: 10px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .rh-learn_z-what-you-learn-sec {
+      padding-top: {{ section.settings.section_padding_top_desktop | default: 80 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_desktop | default: 80 }}px;
+      padding-left: {{ section.settings.section_padding_left_right_desktop | default: 40 }}px;
+      padding-right: {{ section.settings.section_padding_left_right_desktop | default: 40 }}px;
+    }
+
+    ._rh-what-you-learn-card::before {
+      font-size: 220px;
+      bottom: -31px;
+      right: 10px;
+    }
+
+    ._rh-what-you-learn-container {
+      gap: 60px;
+    }
+  }
+
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "What You'll Learn",
+    "tag": "section",
+    "class": "sa-what-you-learn-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Settings"
+      },
+      {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Background Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "container_max_width",
+        "label": "Container Max Width",
+        "default": "1300px",
+        "info": "CSS value (e.g., 1200px, 100%)"
+      },
+          {
+        "type": "header",
+        "content": "Section Title"
+      }, {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "What you'll learn"
+      }, {
+        "type": "header",
+        "content": "CTA Button Settings"
+      }, {
+        "type": "checkbox",
+        "id": "show_cta",
+        "label": "Show CTA Button",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Course content"
+      }, {
+        "type": "header",
+        "content": "Card Numbering"
+      }, {
+        "type": "select",
+        "id": "custom_numbering",
+        "label": "Numbering Style",
+        "options": [
+          {
+            "value": "start_from_one",
+            "label": "Start from 1 (1, 2, 3...)"
+          },
+          {
+            "value": "start_from_zero",
+            "label": "Start from 0 (0, 1, 2...)"
+          },
+          {
+            "value": "custom_start",
+            "label": "Custom start number"
+          }
+        ],
+        "default": "start_from_one"
+      }, {
+        "type": "number",
+        "id": "number_start_value",
+        "label": "Custom Start Number",
+        "default": 1,
+        "info": "Only used when 'Custom start number' is selected"
+      }, {
+        "type": "header",
+        "content": "Metafield Setup Instructions"
+      }, {
+        "type": "paragraph",
+        "content": "**Metafield Setup:** Create a product metafield 'custom.what_you_will_learn' that references multiple metaobjects. Each metaobject should have 'title' and 'description' fields."
+      }, {
+        "type": "header",
+        "content": "Mobile Padding (up to 480px)"
+      }, {
+        "type": "range",
+        "id": "section_padding_top_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 40
+      }, {
+        "type": "range",
+        "id": "section_padding_bottom_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 40
+      }, {
+        "type": "header",
+        "content": "Tablet Padding (481px to 1024px)"
+      }, {
+        "type": "range",
+        "id": "section_padding_top_tablet",
+        "min": 0,
+        "max": 250,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "section_padding_bottom_tablet",
+        "min": 0,
+        "max": 250,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "section_padding_left_right_tablet",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Left/Right Padding",
+        "default": 30
+      }, {
+        "type": "header",
+        "content": "Desktop Padding (1025px and above)"
+      }, {
+        "type": "range",
+        "id": "section_padding_top_desktop",
+        "min": 0,
+        "max": 300,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 80
+      }, {
+        "type": "range",
+        "id": "section_padding_bottom_desktop",
+        "min": 0,
+        "max": 300,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 80
+      }, {
+        "type": "range",
+        "id": "section_padding_left_right_desktop",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Left/Right Padding",
+        "default": 40
+      }
+    ],
+    "presets": [
+      {
+        "name": "SA - What You'll Learn"
+      }
+    ]
+  }
+{% endschema %}
+
+{% if product.metafields.custom.what_you_will_learn %}
+<div class="rh-learn_z-what-you-learn-sec">
+  <div class="container_rh">
+    <div class="_rh-what-you-learn-container">
+      {% if section.settings.section_title != blank %}
+        <h2 class="_rh-what-you-learn-title">{{ section.settings.section_title }}</h2>
+      {% endif %}
+
+      {% assign what_you_will_learn = product.metafields.custom.what_you_will_learn.value %}
+      <div class="_rh-what-you-learn-cards">
+        {% assign card_counter = 0 %}
+        {% for item in what_you_will_learn %}
+          {% assign title = item.name.value %}
+          {% assign description = item.description.value %}
+          
+          {% assign card_counter = card_counter | plus: 1 %}
+          {% assign display_number = card_counter %}
+          {% if section.settings.custom_numbering == 'start_from_zero' %}
+            {% assign display_number = card_counter | minus: 1 %}
+          {% elsif section.settings.custom_numbering == 'custom_start' %}
+            {% assign display_number = section.settings.number_start_value | default: 1 | plus: card_counter | minus: 1 %}
+          {% endif %}
+
+          <div class="_rh-what-you-learn-card" style="--card-number: '{{ display_number }}';">
+            <h3 class="_rh-what-you-learn-card-title">{{ title }}</h3>
+            <p class="_rh-what-you-learn-card-description">{{ description }}</p>
+            {% if section.settings.show_cta %}
+            <a href="#curriculum" class="_rh-what-you-learn-card-content">
+              <span class="_rh-what-you-learn-card-content-text">{{ section.settings.cta_text | default: 'Course content' }}</span>
+              <div class="_rh-what-you-learn-card-arrow"></div>
+            </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
