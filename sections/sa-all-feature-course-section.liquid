@@ -1,0 +1,394 @@
+{% comment %}
+  Dynamic Featured Course Section
+  Allows selection of a product to display as featured course
+{% endcomment %}
+
+{% assign featured_product = section.settings.featured_product %}
+
+<style>
+  .srs-featured-course-section{
+    z-index: 1;
+    position: relative;
+  }
+  .srs-featured-course-section .srs-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 73px 48px;
+    font-family: Inter, sans-serif;
+    border: 1.5px solid #ffffff26;
+    backdrop-filter: blur(35px);
+    background: #1e172859;
+    border-radius: 15px;
+  }
+
+  .srs-featured-course-section .srs-title {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #fff;
+    background: radial-gradient(70.54% 70.54% at 50% 50%, #fff, #ffffff92 92.71%, #fff9 92.72%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    font-family: Inter, sans-serif;
+  }
+
+  .srs-featured-course-section .srs-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: Inter, sans-serif;
+  }
+
+  .srs-featured-course-section .srs-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .srs-featured-course-section .left-part img {
+    max-width: 531px;
+    width: 100%;
+    max-height: 451px;
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .srs-featured-course-section .right-part {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .srs-featured-course-section .course-header {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .srs-featured-course-section .course-title {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1.08px;
+    line-height: 1.2;
+    font-family: Inter, sans-serif;
+  }
+
+  .srs-featured-course-section .course-description {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.2px;
+    font-family: Inter, sans-serif;
+  }
+
+  .srs-featured-course-section .course-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .srs-featured-course-section .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .srs-featured-course-section .stat-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* margin-bottom: 8px; */
+  }
+
+  .srs-featured-course-section .star-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+  }
+
+  .srs-featured-course-section .star-icon::before {
+    content: '';
+    position: absolute;
+    width: 15.39px;
+    height: 14.67px;
+    left: 4.31px;
+    top: 4.47px;
+    background: #ffc107;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  .srs-featured-course-section .stat-value {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28.8px;
+    font-family: Inter, sans-serif;
+  }
+
+  .srs-featured-course-section .stat-label {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    font-family: Inter, sans-serif;
+  }
+
+  .srs-featured-course-section .exercise-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .srs-featured-course-section .exercise-icon {
+    width: 20px;
+    height: 20px;
+    /* background: white; */
+    /* border-radius: 4px; */
+    position: relative;
+  }
+
+  /* .exercise-icon::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 4px;
+    top: 4px;
+    background: #333;
+    border-radius: 2px;
+  } */
+
+  .srs-featured-course-section .cta-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 263px;
+  }
+
+  .srs-featured-course-section .cta-button {
+    height: 55px;
+    position: relative;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .srs-featured-course-section .cta-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .srs-featured-course-section .cta-button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 8px;
+    z-index: -2;
+  }
+
+  .srs-featured-course-section .cta-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #9e6ee5 0%, #fa75f8 100%);
+    border-radius: 6px;
+    z-index: -1;
+  }
+
+  .srs-featured-course-section .cta-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .srs-featured-course-section .enrollment-info {
+    color: white;
+    font-size: 16px;
+    /* text-align: center; */
+    font-family: Inter, sans-serif;
+  }
+
+  .srs-featured-course-section .enrollment-number {
+    font-weight: 700;
+  }
+  @media (max-width: 1024px) {
+    .srs-featured-course-section .srs-content {
+      gap: 20px;
+    }
+    .srs-featured-course-section .srs-container {
+      padding: 40px 20px;
+    }
+  }
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .srs-featured-course-section .srs-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .srs-featured-course-section .course-title {
+      font-size: 28px;
+    }
+
+    .srs-featured-course-section .course-stats {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .srs-featured-course-section .stat-item {
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .srs-featured-course-section .cta-section {
+      max-width: 100%;
+    }
+
+    .srs-featured-course-section .cta-button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .srs-featured-course-section .srs-container {
+      padding: 20px 15px;
+    }
+
+    .srs-featured-course-section .srs-title {
+      font-size: 24px;
+    }
+
+    .srs-featured-course-section .srs-description {
+      font-size: 16px;
+    }
+
+    .srs-featured-course-section .course-title {
+      font-size: 24px;
+    }
+
+    .srs-featured-course-section .course-description {
+      font-size: 14px;
+    }
+
+    .srs-featured-course-section .stat-value {
+      font-size: 18px;
+    }
+
+    .srs-featured-course-section .stat-label {
+      font-size: 14px;
+    }
+  }
+</style>
+
+{% if featured_product %}
+  <section class="srs-featured-course-section">
+    <div class="srs-container">
+      <h2 class="srs-title">{{ section.settings.section_title }}</h2>
+      <p class="srs-description">{{ section.settings.section_description }}</p>
+      <div class="srs-content">
+        <div class="left-part">
+          {% if featured_product.featured_image %}
+            <img
+              src="{{ featured_product.featured_image | img_url: '600x400', crop: 'center' }}"
+              alt="{{ featured_product.title }}"
+            >
+          {% else %}
+            <img src="https://placehold.co/600x400" alt="Course placeholder">
+          {% endif %}
+        </div>
+        <div class="right-part">
+          <div class="course-header">
+            <div class="course-title">
+              {{ featured_product.title }}
+            </div>
+            <div class="course-description">
+              {{ featured_product.description | strip_html | truncate: 200 }}
+            </div>
+          </div>
+          <div class="course-stats">
+            <div class="stat-item">
+              <div class="stat-header">
+                <div class="star-icon"></div>
+                <div class="stat-value">{{ featured_product.metafields.custom.rating | default: '4.7' }}</div>
+              </div>
+              <div class="stat-label">average course rating</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">{{ featured_product.metafields.custom.practice_exercises | default: '126' }}</div>
+              <div class="exercise-label">
+                <div class="stat-label">practice exercises</div>
+                <div class="exercise-icon">
+                  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.0047 14.8415C10.1818 14.8415 10.3302 14.7816 10.4497 14.6618C10.5694 14.5421 10.6292 14.3938 10.6292 14.2168V10.6769C10.6292 10.4999 10.5693 10.3515 10.4495 10.2317C10.3297 10.112 10.1813 10.0522 10.0043 10.0522C9.82716 10.0522 9.67883 10.112 9.55931 10.2317C9.43965 10.3515 9.37982 10.4999 9.37982 10.6769V14.2168C9.37982 14.3938 9.43972 14.5421 9.55952 14.6618C9.67932 14.7816 9.82772 14.8415 10.0047 14.8415ZM10.0045 8.62667C10.1951 8.62667 10.3549 8.56219 10.4838 8.43322C10.6128 8.30426 10.6773 8.14448 10.6773 7.95388C10.6773 7.76328 10.6128 7.6035 10.4838 7.47454C10.3549 7.34571 10.1951 7.2813 10.0045 7.2813C9.81391 7.2813 9.65413 7.34571 9.52516 7.47454C9.3962 7.6035 9.33172 7.76328 9.33172 7.95388C9.33172 8.14448 9.3962 8.30426 9.52516 8.43322C9.65413 8.56219 9.81391 8.62667 10.0045 8.62667ZM10.006 18.7978C8.91151 18.7978 7.88279 18.5902 6.9198 18.1748C5.95681 17.7595 5.11917 17.1958 4.40689 16.4838C3.69461 15.7718 3.13065 14.9345 2.71503 13.9719C2.29954 13.0093 2.0918 11.9809 2.0918 10.8866C2.0918 9.79213 2.29947 8.7634 2.71482 7.80041C3.13017 6.83742 3.69384 5.99979 4.40585 5.2875C5.11785 4.57522 5.95514 4.01127 6.91772 3.59564C7.88029 3.18016 8.90873 2.97241 10.003 2.97241C11.0975 2.97241 12.1262 3.18009 13.0892 3.59543C14.0522 4.01078 14.8898 4.57446 15.6021 5.28646C16.3144 5.99847 16.8784 6.83576 17.294 7.79833C17.7095 8.76091 17.9172 9.78935 17.9172 10.8837C17.9172 11.9781 17.7095 13.0068 17.2942 13.9698C16.8788 14.9328 16.3152 15.7705 15.6032 16.4827C14.8912 17.195 14.0539 17.759 13.0913 18.1746C12.1287 18.5901 11.1003 18.7978 10.006 18.7978ZM10.0045 17.5485C11.8647 17.5485 13.4403 16.9029 14.7313 15.6119C16.0223 14.3209 16.6678 12.7453 16.6678 10.8851C16.6678 9.02494 16.0223 7.44934 14.7313 6.15832C13.4403 4.8673 11.8647 4.22179 10.0045 4.22179C8.14432 4.22179 6.56872 4.8673 5.2777 6.15832C3.98668 7.44934 3.34117 9.02494 3.34117 10.8851C3.34117 12.7453 3.98668 14.3209 5.2777 15.6119C6.56872 16.9029 8.14432 17.5485 10.0045 17.5485Z" fill="white"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">{{ featured_product.metafields.custom.hours_of_content | default: '87.6' }}</div>
+              <div class="stat-label">hours of content</div>
+            </div>
+          </div>
+          <div class="cta-section">
+            <a href="{{ featured_product.url }}" class="nxt-button">
+              <h6>
+                <span>Get started for free</span>
+              </h6>
+            </a>
+            <div class="enrollment-info">
+              <span class="enrollment-number">{{ featured_product.metafields.custom.students | default: '1.5M' }}</span>
+              <span> learners already enrolled</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Featured Course Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Featured course"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section Description",
+      "default": "Many learners enjoyed this highly rated course for its engaging content."
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Featured Product",
+      "info": "Select the product to display as the featured course"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA Featured Course Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

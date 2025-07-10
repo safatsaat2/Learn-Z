@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "sa_all_hero_cWtjpE": {
+    "sa_all_hero_ACkQcb": {
       "type": "sa-all-hero",
       "name": "SA All Hero Section",
       "settings": {
@@ -23,20 +23,19 @@
         "padding_vertical": 2,
         "padding_horizontal": 1,
         "container_padding": 2,
-        "background_color": "rgba(255, 255, 255, 0.15)",
         "backdrop_blur": 18,
         "border_radius": 15,
         "border_width": 1.5,
-        "border_color": "rgba(255, 255, 255, 0.15)",
+        "border_color": "#ffffff26",
         "title_color": "#ffffff",
-        "title_min_size": 2.5,
+        "title_min_size": 40,
         "title_vw": 5,
         "title_max_size": 4.5,
         "title_weight": 600,
         "title_line_height": 1.2,
         "title_margin_bottom": 1,
         "description_color": "#ffffff",
-        "description_min_size": 1.5,
+        "description_min_size": 1,
         "description_vw": 2,
         "description_max_size": 1.2,
         "description_weight": 400,
@@ -128,8 +127,17 @@
         "btn_text": "Show all IT courses",
         "btn_link": "shopify://collections/all",
         "padding_top": 60,
-        "padding_bottom": 60,
+        "padding_bottom": 120,
         "background_color": "#000000"
+      }
+    },
+    "sa_all_feature_course_section_jt8LDq": {
+      "type": "sa-all-feature-course-section",
+      "name": "SA Featured Course Section",
+      "settings": {
+        "section_title": "Featured course",
+        "section_description": "Many learners enjoyed this highly rated course for its engaging content.",
+        "featured_product": "beginning-python"
       }
     },
     "product-grid": {
@@ -148,7 +156,7 @@
         "enable_filtering": true,
         "filter_type": "vertical",
         "enable_sorting": false,
-        "padding_top": 60,
+        "padding_top": 120,
         "padding_bottom": 180
       }
     },
@@ -219,9 +227,10 @@
     }
   },
   "order": [
-    "sa_all_hero_cWtjpE",
+    "sa_all_hero_ACkQcb",
     "banner",
     "nxt_tab_section_kdrrqc",
+    "sa_all_feature_course_section_jt8LDq",
     "product-grid",
     "gradient_bg_TGwBre"
   ]

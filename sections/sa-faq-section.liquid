@@ -1,0 +1,359 @@
+<style>
+     .srs-single-page {
+         padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px 20px;
+          : 'Inter', sans-serif;
+         line-height: 1.6;
+         color: #fff;
+     }
+
+   .srs-single-page  .srs-single-page-container {
+         max-width: 1087px;
+         margin: 0 auto;
+     position: relative;
+     z-index: 1;
+     }
+
+   .srs-single-page  .faq-title {
+         color: #fff;
+    background: radial-gradient(70.54% 70.54% at 50% 50%,#fff,#ffffff92 92.71%,#fff9 92.72%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    font-family: Inter,sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    letter-spacing: -.16px;
+    margin-bottom: 50px;
+     }
+
+   .srs-single-page  .faq-list {
+         display: flex;
+         flex-direction: column;
+         gap: 0;
+         {% comment %} margin-right: 123px; {% endcomment %}
+     }
+
+   .srs-single-page  .faq-item {
+         border-bottom: 1.43px solid #C3C3C333;
+     }
+
+    .srs-single-page .faq-question {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 25px 0;
+         cursor: pointer;
+         transition: all 0.3s ease;
+         gap: 20px;
+     }
+
+   .srs-single-page  .question-content {
+         display: flex;
+         align-items: center;
+         gap: 20px;
+         flex: 1;
+     }
+
+   .srs-single-page  .question-number {
+         color: #fff;
+         font-size: 22px;
+         font-weight: 400;
+         min-width: 40px;
+     }
+
+  .srs-single-page   .question-text {
+         color: {{ section.settings.question_color }};
+         font-size: 22px;
+         font-weight: 400;
+         line-height: 1.5;
+         flex: 1;
+     }
+
+  .srs-single-page   .toggle-button {
+         width: 40px;
+         height: 40px;
+         background: {{ section.settings.button_color }};
+         border: none;
+          border-radius: 8px;
+         color: white;
+         font-size: 22px;
+         font-weight: 700;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: all 0.3s ease;
+         flex-shrink: 0;
+     }
+
+  .srs-single-page   .toggle-button:hover {
+         transform: scale(1.05);
+     }
+
+  .srs-single-page   .toggle-button.active {
+         transform: rotate(45deg);
+     }
+
+   .srs-single-page  .faq-answer {
+         max-height: 0;
+         overflow: hidden;
+         transition: max-height 0.3s ease, padding 0.3s ease;
+     }
+
+    .srs-single-page .faq-answer.active {
+         max-height: unset;
+         padding: 20px 0 25px 20px;
+     }
+
+    .srs-single-page .answer-text {
+         color: {{ section.settings.answer_color }};
+         font-size: 18px;
+         line-height: 1.6;
+     }
+
+     /* Responsive Design */
+     @media (max-width: 768px) {
+    .srs-single-page   .faq-answer.active {
+         padding: 10px 0 15px 10px;
+     }
+    .srs-single-page   .faq-list{
+         margin-right: 0;
+       }
+         .srs-single-page {
+             padding: 20px 10px;
+         }
+
+    .srs-single-page     .srs-single-page-container {
+             padding: 30px 15px;
+         }
+
+    .srs-single-page     .faq-title {
+             font-size: 20px;
+             margin-bottom: 30px;
+         }
+
+    .srs-single-page     .faq-question {
+             padding: 20px 0;
+         }
+
+     .srs-single-page    .question-content {
+             gap: 15px;
+         }
+
+       .srs-single-page  .question-number {
+             font-size: 18px;
+             min-width: 30px;
+         }
+
+        .srs-single-page .question-text {
+             font-size: 18px;
+         }
+
+        .srs-single-page .toggle-button {
+             width: 35px;
+             height: 35px;
+             font-size: 18px;
+         }
+
+        .srs-single-page .faq-answer.active {
+             padding: 15px 0 20px 45px;
+         }
+     }
+
+     @media (max-width: 480px) {
+       .srs-single-page  .srs-single-page-container {
+             padding: 20px 10px;
+         }
+
+        .srs-single-page .faq-title {
+              font-size: 24px;
+              line-height: 32px;
+          margin-bottom: 20px;
+         }
+
+       .srs-single-page  .question-content {
+             gap: 10px;
+         }
+
+       .srs-single-page  .question-text {
+             font-size: 16px;
+         }
+
+       .srs-single-page  .faq-answer.active {
+             padding: 15px 0 20px 40px;
+         }
+     }
+</style>
+
+<section class="srs-single-page">
+  <div class="srs-single-page-container">
+    <h1 class="faq-title">{{ section.settings.title }}</h1>
+
+    <div class="faq-list">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'faq_item' -%}
+          <div class="faq-item" {{ block.shopify_attributes }}>
+            <div class="faq-question" onclick="toggleAccordion(this)">
+              <div class="question-content">
+                <div class="question-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+                <div class="question-text">{{ block.settings.question }}</div>
+              </div>
+              <button class="toggle-button">+</button>
+            </div>
+            <div class="faq-answer">
+              <div class="answer-text">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleAccordion(element) {
+      const answer = element.nextElementSibling;
+      const button = element.querySelector('.toggle-button');
+      const isActive = element.classList.contains('active');
+
+      // Close all other accordion items
+      const allQuestions = document.querySelectorAll('.srs-single-page .faq-question');
+      allQuestions.forEach(question => {
+          question.classList.remove('active');
+          question.nextElementSibling.classList.remove('active');
+          question.querySelector('.toggle-button').classList.remove('active');
+      });
+
+      // Toggle current item
+      if (!isActive) {
+          element.classList.add('active');
+          answer.classList.add('active');
+          button.classList.add('active');
+      }
+  }
+
+  // Add keyboard accessibility
+  document.addEventListener('DOMContentLoaded', function() {
+      const questions = document.querySelectorAll('.srs-single-page .faq-question');
+
+      questions.forEach(question => {
+          question.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleAccordion(this);
+              }
+          });
+
+          question.setAttribute('tabindex', '0');
+          question.setAttribute('role', 'button');
+          question.setAttribute('aria-expanded', 'false');
+      });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "SA FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "FAQ Title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 1.2,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Title Font Size",
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Toggle Button Color",
+      "default": "#A365FFB2"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your question?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your answer goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA FAQ Section",
+      "category": "Product Information",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your first question?",
+            "answer": "<p>This is the answer to your first question.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your second question?",
+            "answer": "<p>This is the answer to your second question.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

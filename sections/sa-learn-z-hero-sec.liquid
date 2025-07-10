@@ -6,123 +6,6 @@
     </g>
   </defs>
 </svg>
-<section class="rh-learn_z-hero-sec">
-  <div class="container_rh">
-    <div class="_rh-hero-main">
-      <div class="_rh-hero-content">
-        <div class="_rh-hero-content-inner">
-          {% if section.settings.show_flash_badge %}
-            <div class="_rh-flash-sale-badge">
-              <div class="_rh-flash-sale-inner">
-                <div class="_rh-flash-sale-text">
-                  {{ section.settings.flash_badge_text | default: '24-Hour Flash Sale' }}
-                </div>
-              </div>
-              <div class="_rh-flash-sale-glow"></div>
-            </div>
-          {% endif %}
-          <div class="_rh-main-heading">
-            <span class="_rh-heading-white">
-              {{- section.settings.main_heading | default: 'Learn what you need.' | newline_to_br -}}
-            </span>
-          </div>
-        </div>
-        {% if section.settings.show_main_cta %}
-          <a href="{{ section.settings.main_cta_url | default: '#' }}" class="_rh-cta-button">
-            <div class="_rh-cta-button-bg"></div>
-            <div class="_rh-cta-button-overlay"></div>
-            <div class="_rh-cta-button-text">{{ section.settings.main_cta_text | default: 'Starting at $14.99' }}</div>
-          </a>
-        {% endif %}
-      </div>
-      {% if section.settings.show_glass_section %}
-        <div class="_rh-glass-section">
-          <div class="_rh-glass-content">
-            <div class="_rh-glass-header">
-              <div class="_rh-glass-heading">
-                <span class="_rh-glass-heading-white">
-                  {{- section.settings.glass_heading | default: 'Ready to reimagine your career?' -}}
-                </span>
-              </div>
-              {% if section.settings.glass_description != blank %}
-                <div class="_rh-glass-description">
-                  {{ section.settings.glass_description }}
-                </div>
-              {% endif %}
-            </div>
-            {% if section.blocks.size > 0 %}
-              <div class="_rh-career-cards">
-                {% for block in section.blocks %}
-                  {% case block.type %}
-                    {% when 'career_card' %}
-                      <div class="_rh-career-card" {{ block.shopify_attributes }}>
-                        <div class="_rh-career-card-bg"></div>
-                        {% if block.settings.card_icon != blank %}
-                          <div class="_rh-career-card-icon">
-                            {% if block.settings.card_icon_custom != blank %}
-                              {{ block.settings.card_icon_custom }}
-                            {% else %}
-                              <img
-                                src="{{ block.settings.card_icon | img_url: '120x120' }}"
-                                alt="{{ block.settings.card_title }}"
-                                loading="lazy"
-                              >
-                            {% endif %}
-                          </div>
-                        {% endif %}
-                        <div class="_rh-career-card-content">
-                          <div class="_rh-career-card-title">
-                            {{ block.settings.card_title | default: 'Career Title' }}
-                          </div>
-                          <div class="_rh-career-card-stats">
-                            {% if block.settings.show_rating %}
-                              <div class="_rh-card-stat">
-                                <div class="_rh-card-stat-icon">
-                                  <svg
-                                    width="11"
-                                    height="11"
-                                    viewBox="0 0 11 11"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <use href="#star-icon" />
-                                  </svg>
-                                </div>
-                                <div class="_rh-card-stat-text">{{ block.settings.rating | default: '4.7' }}</div>
-                              </div>
-                            {% endif %}
-                            {% if block.settings.ratings_count != blank %}
-                              <div class="_rh-card-stat">
-                                <div class="_rh-card-stat-text">{{ block.settings.ratings_count }} ratings</div>
-                              </div>
-                            {% endif %}
-                            {% if block.settings.total_hours != blank %}
-                              <div class="_rh-card-stat">
-                                <div class="_rh-card-stat-text">{{ block.settings.total_hours }} total hours</div>
-                              </div>
-                            {% endif %}
-                          </div>
-                        </div>
-                      </div>
-                  {% endcase %}
-                {% endfor %}
-              </div>
-            {% endif %}
-            {% if section.settings.show_final_cta %}
-              <a href="{{ section.settings.final_cta_url | default: '#' }}" class="_rh-final-cta">
-                <div class="_rh-final-cta-bg"></div>
-                <div class="_rh-final-cta-overlay"></div>
-                <div class="_rh-final-cta-text">
-                  {{ section.settings.final_cta_text | default: 'All Career Accelerators' }}
-                </div>
-              </a>
-            {% endif %}
-          </div>
-        </div>
-      {% endif %}
-    </div>
-  </div>
-</section>
 
 {% style %}
   .rh-learn_z-hero-sec {
@@ -778,6 +661,123 @@
     }
   }
 {% endstyle %}
+<section class="rh-learn_z-hero-sec">
+  <div class="container_rh">
+    <div class="_rh-hero-main">
+      <div class="_rh-hero-content">
+        <div class="_rh-hero-content-inner">
+          {% if section.settings.show_flash_badge %}
+            <div class="_rh-flash-sale-badge">
+              <div class="_rh-flash-sale-inner">
+                <div class="_rh-flash-sale-text">
+                  {{ section.settings.flash_badge_text | default: '24-Hour Flash Sale' }}
+                </div>
+              </div>
+              <div class="_rh-flash-sale-glow"></div>
+            </div>
+          {% endif %}
+          <div class="_rh-main-heading">
+            <span class="_rh-heading-white">
+              {{- section.settings.main_heading | default: 'Learn what you need.' | newline_to_br -}}
+            </span>
+          </div>
+        </div>
+        {% if section.settings.show_main_cta %}
+          <a href="{{ section.settings.main_cta_url | default: '#' }}" class="_rh-cta-button">
+            <div class="_rh-cta-button-bg"></div>
+            <div class="_rh-cta-button-overlay"></div>
+            <div class="_rh-cta-button-text">{{ section.settings.main_cta_text | default: 'Starting at $14.99' }}</div>
+          </a>
+        {% endif %}
+      </div>
+      {% if section.settings.show_glass_section %}
+        <div class="_rh-glass-section">
+          <div class="_rh-glass-content">
+            <div class="_rh-glass-header">
+              <div class="_rh-glass-heading">
+                <span class="_rh-glass-heading-white">
+                  {{- section.settings.glass_heading | default: 'Ready to reimagine your career?' -}}
+                </span>
+              </div>
+              {% if section.settings.glass_description != blank %}
+                <div class="_rh-glass-description">
+                  {{ section.settings.glass_description }}
+                </div>
+              {% endif %}
+            </div>
+            {% if section.blocks.size > 0 %}
+              <div class="_rh-career-cards">
+                {% for block in section.blocks %}
+                  {% case block.type %}
+                    {% when 'career_card' %}
+                      <div class="_rh-career-card" {{ block.shopify_attributes }}>
+                        <div class="_rh-career-card-bg"></div>
+                        {% if block.settings.card_icon != blank %}
+                          <div class="_rh-career-card-icon">
+                            {% if block.settings.card_icon_custom != blank %}
+                              {{ block.settings.card_icon_custom }}
+                            {% else %}
+                              <img
+                                src="{{ block.settings.card_icon | img_url: '120x120' }}"
+                                alt="{{ block.settings.card_title }}"
+                                loading="lazy"
+                              >
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                        <div class="_rh-career-card-content">
+                          <div class="_rh-career-card-title">
+                            {{ block.settings.card_title | default: 'Career Title' }}
+                          </div>
+                          <div class="_rh-career-card-stats">
+                            {% if block.settings.show_rating %}
+                              <div class="_rh-card-stat">
+                                <div class="_rh-card-stat-icon">
+                                  <svg
+                                    width="11"
+                                    height="11"
+                                    viewBox="0 0 11 11"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <use href="#star-icon" />
+                                  </svg>
+                                </div>
+                                <div class="_rh-card-stat-text">{{ block.settings.rating | default: '4.7' }}</div>
+                              </div>
+                            {% endif %}
+                            {% if block.settings.ratings_count != blank %}
+                              <div class="_rh-card-stat">
+                                <div class="_rh-card-stat-text">{{ block.settings.ratings_count }} ratings</div>
+                              </div>
+                            {% endif %}
+                            {% if block.settings.total_hours != blank %}
+                              <div class="_rh-card-stat">
+                                <div class="_rh-card-stat-text">{{ block.settings.total_hours }} total hours</div>
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                  {% endcase %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% if section.settings.show_final_cta %}
+              <a href="{{ section.settings.final_cta_url | default: '#' }}" class="_rh-final-cta">
+                <div class="_rh-final-cta-bg"></div>
+                <div class="_rh-final-cta-overlay"></div>
+                <div class="_rh-final-cta-text">
+                  {{ section.settings.final_cta_text | default: 'All Career Accelerators' }}
+                </div>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {

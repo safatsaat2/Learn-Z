@@ -66,6 +66,7 @@
         "description",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -80,6 +81,137 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "sa_single_hero_VCGBQG": {
+      "type": "sa-single-hero",
+      "name": "SA Single hero Section",
+      "settings": {}
+    },
+    "sa_testimonials_7NV7dn": {
+      "type": "sa-testimonials",
+      "blocks": {
+        "testimonial_f77ENB": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type1",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_image": "shopify://shop_images/logo_stackoverflow.svg_1.png",
+            "logo_text": "37,076 responses collected",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        },
+        "testimonial_cMfJgw": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_text": "37,076 responses collected",
+            "author_image": "shopify://shop_images/Alvin_Lim_jpeg.png",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        },
+        "testimonial_7xMRMm": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_text": "37,076 responses collected",
+            "author_image": "shopify://shop_images/William_A_Wachlin_jpeg.png",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        },
+        "testimonial_keM7dX": {
+          "type": "testimonial",
+          "settings": {
+            "card_type": "type2",
+            "quote_text": "Udemy gives you the ability to be persistent. I learned exactly what I needed to know in the real world. It helped me sell myself to get a new role.",
+            "bold_text": "Udemy was rated the most popular online course or certification program for learning how to code according to",
+            "underlined_text": "StackOverflow's 2023 Developer survey",
+            "logo_text": "37,076 responses collected",
+            "author_image": "shopify://shop_images/Ian_Stevens_png.png",
+            "author_name": "Alvin Lim",
+            "author_title": "Technical Co-Founder, CTO at Dimensional",
+            "cta_text": "View Web Development courses",
+            "cta_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_f77ENB",
+        "testimonial_cMfJgw",
+        "testimonial_7xMRMm",
+        "testimonial_keM7dX"
+      ],
+      "custom_css": [
+        ".srs-container:not(.first) {display: none;}",
+        ".srs-testimonial-section .srs-container.first {margin-bottom: 0;}",
+        "@media (min-width: 768px) {.srs-testimonial-section {padding: 60px 20px; }}"
+      ],
+      "name": "SA Testimonial Section",
+      "settings": {
+        "main_title": "See others learning success",
+        "logo_image": "shopify://shop_images/logo-boozallenhamilton-2_svg.png",
+        "logo_text": "Udemy Business",
+        "left_title": "Booz Allen Hamilton Unlocks TalentRetention and Productivity ThroughUpskilling",
+        "stat_1_number": "93%",
+        "stat_1_text": "retention rate among participating employees",
+        "stat_2_number": "65%",
+        "stat_2_text": "of learners noted a positive impact on their productivity",
+        "cta_text": "Read full story",
+        "cta_link": "#",
+        "right_image": "shopify://shop_images/Group_24.png",
+        "show_gradient_text": true,
+        "background_color": "#000000",
+        "text_color": "#ffffff"
+      }
+    },
+    "sa_faq_section_CbTYgx": {
+      "type": "sa-faq-section",
+      "blocks": {
+        "faq_item_BQBW7i": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your first question?",
+            "answer": "<p>This is the answer to your first question.</p>"
+          }
+        },
+        "faq_item_XxM9zz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your second question?",
+            "answer": "<p>This is the answer to your second question.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_BQBW7i",
+        "faq_item_XxM9zz"
+      ],
+      "name": "SA FAQ Section",
+      "settings": {
+        "title": "Frequently asked questions",
+        "title_size": 2,
+        "button_color": "#a365ffb3",
+        "question_color": "#ffffff",
+        "answer_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "related-products": {
@@ -168,6 +300,9 @@
   },
   "order": [
     "main",
+    "sa_single_hero_VCGBQG",
+    "sa_testimonials_7NV7dn",
+    "sa_faq_section_CbTYgx",
     "related-products",
     "gradient_bg_pDJjrf"
   ]
